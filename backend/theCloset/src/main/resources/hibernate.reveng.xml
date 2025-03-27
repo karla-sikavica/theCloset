@@ -1,0 +1,64 @@
+<hibernate-reverse-engineering>
+    <schema-selection match-schema="public"/>
+
+    <table name="category">
+        <primary-key>
+            <key-column name="id"/>
+        </primary-key>
+    </table>
+
+    <table name="clothing_item">
+        <primary-key>
+            <key-column name="id"/>
+        </primary-key>
+    </table>
+
+    <table name="clothing_item_colors">
+        <primary-key>
+            <key-column name="id"/>
+        </primary-key>
+    </table>
+
+    <table name="color">
+        <primary-key>
+            <key-column name="id"/>
+        </primary-key>
+    </table>
+
+    <table name="item_outfit">
+        <primary-key>
+            <key-column name="id"/>
+        </primary-key>
+    </table>
+
+    <table name="outfit">
+        <primary-key>
+            <key-column name="id"/>
+        </primary-key>
+    </table>
+
+    <table name="outfit_tags">
+        <primary-key>
+            <key-column name="id"/>
+        </primary-key>
+    </table>
+
+    <table name="subcategory">
+        <primary-key>
+            <key-column name="id"/>
+        </primary-key>
+    </table>
+
+    <table name="tags">
+        <primary-key>
+            <key-column name="id"/>
+        </primary-key>
+    </table>
+
+    <table name="users">
+        <primary-key>
+            <key-column name="id"/>
+        </primary-key>
+    </table>
+
+</hibernate-reverse-engineering>

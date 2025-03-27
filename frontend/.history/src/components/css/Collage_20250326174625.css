@@ -1,0 +1,24 @@
+.collage-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none; /* this disables mouse events on container */
+    z-index: -1;
+  }
+  
+  .collage-img {
+    position: absolute;
+    width: 200px; /* you can adjust this */
+    object-fit: contain;
+    pointer-events: auto; /* enable hover on images inside the background */
+    filter: grayscale(100%);
+/*     transition: filter 0.3s ease;
+ */  }
+  
+  .collage-img:hover {
+    filter: grayscale(0%);
+  }
+  

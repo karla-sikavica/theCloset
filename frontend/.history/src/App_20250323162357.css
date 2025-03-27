@@ -1,0 +1,31 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background-image: url("/images/download (7).jpeg");
+  background-size: contain;
+  background-position: center;
+  color:bisque;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+body::before {
+  content: "";
+  position: fixed; /* Covers the whole screen */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/images/download (7).jpeg");
+  background-size: contain;
+  background-position: center;
+  transform: scaleX(-1); /* Flips the image horizontally */
+  z-index: -1; /* Places it behind all content */
+}
+
+

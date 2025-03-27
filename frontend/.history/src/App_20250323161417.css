@@ -1,0 +1,14 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background-image: url("/images/download (7).jpeg");
+  background-size: cover;
+  background-position: center;
+  transform: scaleX(-1); /* Flips everything, including text */
+}
+
