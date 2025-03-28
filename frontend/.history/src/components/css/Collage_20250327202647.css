@@ -13,7 +13,7 @@
   .collage-img {
     position: absolute;
     object-fit: contain;
-    filter: grayscale(100%) blur(3px) brightness(0.5);
+    filter: grayscale(100%) blur(3px) grayscale(100%);
     pointer-events: auto;
     border: none;
   }

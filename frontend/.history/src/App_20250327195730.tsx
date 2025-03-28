@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Login from "./pages/Login";
-import Collage from "./components/ui/Collage";
+import Collage2 from "./components/ui/Collage2";
 
 function App() {
   return (
     <Router>
-      <Collage />
+      <Collage2 />
 
       {/* <div className="main-content">
         <Routes>

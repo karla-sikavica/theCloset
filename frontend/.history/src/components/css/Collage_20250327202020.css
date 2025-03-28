@@ -13,13 +13,15 @@
   .collage-img {
     position: absolute;
     object-fit: contain;
-    filter: grayscale(100%) blur(3px) brightness(0.5);
+    filter: grayscale(100%);
+    filter: blur(100%);
     pointer-events: auto;
     border: none;
   }
   
   .collage-img:hover {
     filter: grayscale(0%);
+    filter: blur(0%);
 
 /*     border: 3px solid bisque;
  */  }

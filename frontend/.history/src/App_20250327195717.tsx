@@ -6,7 +6,7 @@ import Collage from "./components/ui/Collage";
 function App() {
   return (
     <Router>
-      <Collage />
+      <Collage2 />
 
       {/* <div className="main-content">
         <Routes>

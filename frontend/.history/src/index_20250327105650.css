@@ -3,14 +3,13 @@
   src: url('/fonts/Kalla-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  display: block;
 }
 
 :root {
   font-family: 'Kalla', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 50px;
   font-weight: 400;
-  display: block;
-
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
