@@ -17,7 +17,7 @@ public class Outfit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(name = "imageurl", nullable = false, columnDefinition = "TEXT")
     private String imageUrl;
 
     @ManyToOne

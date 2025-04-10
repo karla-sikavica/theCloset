@@ -43,7 +43,7 @@ public class ClothingItem {
     @Column(length = 50)
     private String season;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(name = "imageurl", nullable = false, columnDefinition = "TEXT")
     private String imageUrl;
 
     @ManyToOne

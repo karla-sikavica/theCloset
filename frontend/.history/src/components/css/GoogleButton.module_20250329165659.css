@@ -1,0 +1,14 @@
+.googleButton{
+    border-radius: 50px;
+    padding: 5px 20px;
+    background-color: #f0ebd8;
+    border: none;
+    font-family: 'Kalla', sans-serif;
+    font-size: 55px;
+    font-weight: 400;
+
+}
+
+.googleButton:hover{
+    background-color: #cfcbb9;
+}

@@ -1,0 +1,56 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  color:#f0ebd8  ;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Optional: to make sure your app content appears above the collage */
+.main-content {
+  z-index: 10;
+
+   position: relative;
+  /*pointer-events: auto;
+  height: 100%; */
+}
+
+/* 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vh; 
+  height: 100vw;
+  background-image: url("/images/download.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transform: rotate(270deg) translate(-100vh, 0); 
+  transform-origin: top left;
+  z-index: -1; 
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* background: rgba(50, 30, 10, 0.6); */ 
+/*   z-index: -1; 
+ *//* */

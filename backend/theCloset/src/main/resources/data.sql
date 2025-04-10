@@ -1,15 +1,14 @@
--- USERS
-INSERT INTO users (id, name, email) VALUES
-(1, 'Karla Test', 'karla@example.com'),
-(2, 'Luka Fashion', 'luka@example.com'),
-(3, 'Mia Style', 'mia@example.com');
-
 -- CATEGORY
 INSERT INTO category (id, name) VALUES
-(1, 'Tops'),
-(2, 'Bottoms'),
-(3, 'Footwear'),
-(4, 'Outerwear');
+(1, 'Top'),
+(2, 'Bottom'),
+(3, 'Shoes'),
+(4, 'Outerwear'),
+(5, 'One piece'),
+(6, 'Bag'),
+(7, 'Accessory'),
+(8, 'Jewelry'),
+(9, 'Swimwear');
 
 -- SUBCATEGORY
 INSERT INTO subcategory (id, name, category_id) VALUES
