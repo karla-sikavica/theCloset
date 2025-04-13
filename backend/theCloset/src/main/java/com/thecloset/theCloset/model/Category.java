@@ -22,7 +22,12 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("category-subcategories")
     private List<Subcategory> subcategories;
+
+    @OneToMany(mappedBy = "category")
+    @JsonManagedReference("category-clothingItems")  // This should correspond to the back-reference name from ClothingItem
+    private List<ClothingItem> clothingItems;
+
 
 }

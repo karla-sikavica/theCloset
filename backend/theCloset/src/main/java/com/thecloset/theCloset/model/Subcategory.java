@@ -4,6 +4,7 @@ package com.thecloset.theCloset.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +24,10 @@ public class Subcategory {
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("category-subcategories")
     private Category category;
 
+    @OneToMany(mappedBy = "subcategory", cascade = CascadeType.ALL)
+    @JsonManagedReference("subcategory-clothingItems")  // This ensures proper serialization
+    private List<ClothingItem> clothingItems;
 }

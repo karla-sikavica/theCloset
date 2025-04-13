@@ -1,0 +1,138 @@
+/* Generalne postavke za telo stranice */
+body {
+    font-family: 'Kalla', sans-serif;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 3rem;
+    text-shadow: none;
+  }
+  
+  /* Container koji sadrži formu */
+  .AddContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Naslov forme */
+  .titleContainer {
+    text-align: center;
+  }
+  
+  .title {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Informativni tekst iznad forme */
+  .formTypeContainer {
+    text-align: center;
+  }
+  
+  .formTypeContainer p {
+    color: #777;
+  }
+  
+  /* Glavni container za formu */
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 80%;
+    width: 50%;
+  }
+  
+  /* Label za svaki input */
+  label {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* Input i select polja */
+  input[type="text"],
+  input[type="number"],
+  input[type="file"],
+  select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    max-width: 40%;
+
+    box-sizing: border-box;
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
+  }
+  
+  /* Stajling za dugme za submit */
+  .submitButton {
+    padding: 12px;
+    background-color: #3498db;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .submitButton:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Stilizacija za unos boja */
+  input[type="text"] {
+    text-transform: capitalize;
+  }
+  
+  /* Razmak između inputa za bolju preglednost */
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    border-color: #3498db;
+  }
+  
+  /* Flexbox container za boje */
+  .colorsContainer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  /* Stil za input za boje */
+  .colorsContainer input {
+    width: 30%;
+    min-width: 150px;
+    max-width: 160px;
+  }
+  
+  /* Za odabir slike */
+  input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  input[type="file"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
+  }
+  
+  /* Za dodavanje razmaka između sekcija forme */
+  .formContainer > * {
+  }
+  
+  

@@ -2,6 +2,8 @@ package com.thecloset.theCloset.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,6 +31,7 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Outfit> outfits;
 
+    @JsonManagedReference("user-clothingItems")
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<ClothingItem> clothingItems;
 }

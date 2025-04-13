@@ -22,9 +22,9 @@ public class TheClosetApplication {
 		return args -> {
 			try (var conn = dataSource.getConnection();
 				 var stmt = conn.createStatement();
-				 var rs = stmt.executeQuery("SELECT COUNT(*) FROM subcategory")) {
+				 var rs = stmt.executeQuery("SELECT COUNT(*) FROM color")) {
 				rs.next();
-				System.out.println("📦 Broj subkategorija: " + rs.getInt(1));
+				System.out.println("📦 Broj boja: " + rs.getInt(1));
 			}
 		};
 	}

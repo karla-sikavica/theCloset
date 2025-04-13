@@ -25,6 +25,34 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/current")
+    public ResponseEntity<User> getCurrentUser(HttpServletRequest request) {
+        String authHeader = request.getHeader("Authorization");
+
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
+        String idToken = authHeader.substring(7);
+
+        try {
+            // Verify the ID token using Firebase Admin SDK
+            FirebaseToken decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
+            String uid = decodedToken.getUid(); // Get the UID from the decoded token
+
+            // Find the user in your database by UID
+            Optional<User> user = userService.findByUid(uid);
+            if (user.isPresent()) {
+                return ResponseEntity.ok(user.get());  // Return the current user
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();  // If no user is found
+            }
+
+        } catch (FirebaseAuthException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();  // If token verification fails
+        }
+    }
+
     @GetMapping
     public List<User> getAllUsers(){
         return userService.getAllUsers();

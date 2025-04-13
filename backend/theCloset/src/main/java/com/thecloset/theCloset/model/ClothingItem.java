@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -47,17 +48,20 @@ public class ClothingItem {
     private String imageUrl;
 
     @ManyToOne
+    @JsonBackReference("user-clothingItems")
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonBackReference("category-clothingItems")
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     @ManyToOne
     @JoinColumn(name = "subcategory_id")
+    @JsonBackReference("subcategory-clothingItems")
     private Subcategory subcategory;
+
 
     @ManyToMany
     @JoinTable(

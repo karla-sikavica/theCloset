@@ -1,0 +1,13 @@
+.homeContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navButtonsContainer{
+    display: flex;
+    flex-direction: row;
+    top: 80%;
+    position: absolute;
+}

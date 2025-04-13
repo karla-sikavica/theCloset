@@ -24,7 +24,20 @@ INSERT INTO color (id, name) VALUES
 (2, 'Blue'),
 (3, 'Black'),
 (4, 'White'),
-(5, 'Green');
+(5, 'Green'),
+(6, 'Pink'),
+(7, 'Purple'),
+(8, 'Beige'),
+(9, 'Cream'),
+(10, 'Yellow'),
+(11, 'Teal'),
+(12, 'Orange'),
+(13, 'Brown'),
+(14, 'Grey'),
+(15, 'Gold'),
+(16, 'Silver'),
+(17, 'Multicolor');
+
 
 -- TAGS
 INSERT INTO tags (id, name) VALUES
