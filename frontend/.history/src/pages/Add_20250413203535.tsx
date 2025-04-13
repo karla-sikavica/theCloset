@@ -7,7 +7,6 @@ import { getAuth, getIdToken } from "firebase/auth";
 
 const Add = () => {
   const [user, setUser] = useState();
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [categories, setCategories] = useState<
     {
       id: number;
@@ -52,12 +51,12 @@ const Add = () => {
     }));
   };
 
-  /* const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]; // Safely get the file
     if (file) {
       setImage(file);
     }
-  }; */
+  };
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
@@ -171,15 +170,6 @@ const Add = () => {
     fetchCategories();
   }, []);
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setImage(file);
-      const imageUrl = URL.createObjectURL(file);
-      setPreviewUrl(imageUrl);
-    }
-  };
-
   const selectedCategory = categories.find((cat) => cat.id === outfit.category);
 
   const subcategories = selectedCategory ? selectedCategory.subcategories : [];
@@ -204,30 +194,13 @@ const Add = () => {
           onChange={handleInputChange}
           required
         />
+
         <input
           type="text"
           id="season"
           placeholder="season"
           name="season"
           value={outfit.season}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          type="text"
-          id="brand"
-          name="brand"
-          placeholder="brand"
-          value={outfit.brand}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          type="text"
-          id="material"
-          name="material"
-          placeholder="material"
-          value={outfit.material}
           onChange={handleInputChange}
           required
         />
@@ -252,6 +225,7 @@ const Add = () => {
             </option>
           ))}
         </select>
+
         <select
           id="subcategory"
           name="subcategory"
@@ -271,6 +245,27 @@ const Add = () => {
             </option>
           ))}
         </select>
+
+        <input
+          type="text"
+          id="brand"
+          name="brand"
+          placeholder="brand"
+          value={outfit.brand}
+          onChange={handleInputChange}
+          required
+        />
+
+        <input
+          type="text"
+          id="material"
+          name="material"
+          placeholder="material"
+          value={outfit.material}
+          onChange={handleInputChange}
+          required
+        />
+
         <input
           type="number"
           id="price"
@@ -280,7 +275,6 @@ const Add = () => {
           onChange={handleInputChange}
           required
         />
-        {/* 
         <select
           id="colors"
           name="colors"
@@ -294,47 +288,16 @@ const Add = () => {
               {color.name}
             </option>
           ))}
-        </select> */}
-        <select
-          id="colors"
-          name="colors"
-          value={outfit.colors[0]?.id.toString() || ""} // assumes single selection
-          onChange={handleColorChange}
-        >
-          <option value="">color</option>
-          {colors.map((color) => (
-            <option key={color.id} value={color.id.toString()}>
-              {color.name}
-            </option>
-          ))}
         </select>
-        // Your component JSX
-        <div className="file-upload-wrapper">
-          {previewUrl && (
-            <div className="image-preview">
-              <img src={previewUrl} alt="Preview" className="preview-img" />
-            </div>
-          )}
 
-          <label htmlFor="imageUrl" className="file-upload-label">
-            📸 Choose an Image
-          </label>
-          <input
-            type="file"
-            id="imageUrl"
-            onChange={handleImageChange}
-            required
-            className="hidden-file-input"
-          />
-        </div>
-        {/* 
         <input
           type="file"
           id="imageUrl"
           placeholder="choose an image"
           onChange={handleImageChange}
           required
-        /> */}
+        />
+
         <button type="submit" className="submitButton">
           Add Item
         </button>

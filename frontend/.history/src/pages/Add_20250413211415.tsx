@@ -7,7 +7,6 @@ import { getAuth, getIdToken } from "firebase/auth";
 
 const Add = () => {
   const [user, setUser] = useState();
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [categories, setCategories] = useState<
     {
       id: number;
@@ -52,12 +51,12 @@ const Add = () => {
     }));
   };
 
-  /* const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]; // Safely get the file
     if (file) {
       setImage(file);
     }
-  }; */
+  };
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
@@ -170,15 +169,6 @@ const Add = () => {
 
     fetchCategories();
   }, []);
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setImage(file);
-      const imageUrl = URL.createObjectURL(file);
-      setPreviewUrl(imageUrl);
-    }
-  };
 
   const selectedCategory = categories.find((cat) => cat.id === outfit.category);
 
@@ -310,31 +300,25 @@ const Add = () => {
         </select>
         // Your component JSX
         <div className="file-upload-wrapper">
-          {previewUrl && (
-            <div className="image-preview">
-              <img src={previewUrl} alt="Preview" className="preview-img" />
-            </div>
-          )}
-
           <label htmlFor="imageUrl" className="file-upload-label">
             📸 Choose an Image
           </label>
           <input
             type="file"
             id="imageUrl"
+            accept="image/*"
             onChange={handleImageChange}
             required
             className="hidden-file-input"
           />
         </div>
-        {/* 
         <input
           type="file"
           id="imageUrl"
           placeholder="choose an image"
           onChange={handleImageChange}
           required
-        /> */}
+        />
         <button type="submit" className="submitButton">
           Add Item
         </button>

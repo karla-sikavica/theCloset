@@ -2,7 +2,7 @@
 body {
     font-family: 'Kalla', sans-serif;
     height: 100vh;
-    font-size: 1.3rem;
+    font-size: 1rem;
     text-shadow: none;
   }
   
@@ -71,7 +71,7 @@ body {
     border-radius: 50px;
     max-width: 40%;
     font-family: 'Kalla', sans-serif;
-    font-size: 1.3rem;
+    font-size: 2rem;
     box-sizing: border-box;
     text-transform: lowercase;
   }
@@ -80,7 +80,7 @@ body {
   input[type="number"]:focus,
   select:focus {
     outline: none;
-    border-color: #ff1493;
+    border-color: #3498db;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
     text-transform: lowercase;
 
@@ -88,21 +88,18 @@ body {
   
   /* Stajling za dugme za submit */
   .submitButton {
-    font-family: 'Kalla', sans-serif;
-    padding: 8px;
-    background-color: #ff1493;
-    color: white;
+    padding: 12px;
+    background-color: #3498db;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100px;
+    width: 100%;
     box-sizing: border-box;
-    font-size: 20px;
   }
   
   .submitButton:hover {
-    background-color: #ea1285;
+    background-color: #2980b9;
   }
   
   
@@ -110,7 +107,7 @@ body {
   /* Razmak između inputa za bolju preglednost */
   input[type="text"]:focus,
   input[type="number"]:focus {
-    border-color: #ff4d6d;
+    border-color: #3498db;
   }
   
   /* Flexbox container za boje */
@@ -135,46 +132,12 @@ body {
   }
   
   input[type="file"]:focus {
-    border-color: #ff1493;
+    border-color: #3498db;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
   }
-
-  .file-upload-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
   
-  .file-upload-label {
-    background-color: #ff1493; /* Hot pink 💖 */
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.3s ease;
-  }
-  
-  .file-upload-label:hover {
-    background-color: #e01280; /* Deeper pink */
-  }
-  
-  .hidden-file-input {
-    display: none;
-  }
-
-  .image-preview {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .preview-img {
-    max-width: 200px;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    object-fit: cover;
+  /* Za dodavanje razmaka između sekcija forme */
+  .formContainer > * {
   }
   
   

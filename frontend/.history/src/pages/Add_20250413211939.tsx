@@ -310,12 +310,6 @@ const Add = () => {
         </select>
         // Your component JSX
         <div className="file-upload-wrapper">
-          {previewUrl && (
-            <div className="image-preview">
-              <img src={previewUrl} alt="Preview" className="preview-img" />
-            </div>
-          )}
-
           <label htmlFor="imageUrl" className="file-upload-label">
             📸 Choose an Image
           </label>

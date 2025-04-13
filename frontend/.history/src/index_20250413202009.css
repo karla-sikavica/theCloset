@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'Kalla';
-  src: url('/fonts/Kalla-Regular.ttf') format('truetype');
-  font-weight: normal;
+  src: url('/fonts/Kalla.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
 }
 
 :root {
-  font-family: 'Kalla', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Kalla', 'Times New Roman', Avenir, Helvetica, Arial, sans-serif;
+  line-height: 50px;
   font-weight: 400;
+  display: block;
 
-  color-scheme: light dark;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
