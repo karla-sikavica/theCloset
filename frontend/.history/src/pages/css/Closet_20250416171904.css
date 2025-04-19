@@ -1,0 +1,16 @@
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.card-div{
+    color: #373737;
+    border-radius: 50px;
+}
+
+.image-div{
+    height: 100px;
+    width: 100px;
+}
