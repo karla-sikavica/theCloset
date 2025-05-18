@@ -155,26 +155,26 @@ const Add = () => {
   const subcategories = selectedCategory ? selectedCategory.subcategories : [];
 
   return (
-    <div className="AddContainer">
+    <div className="AddContainer" onSubmit={handleSubmit}>
       <div className="tab-switch">
         <button
           className={activeTab === "clothing" ? "tab active" : "tab"}
           onClick={() => setActiveTab("clothing")}
           type="button"
         >
-          clothing item
+          Clothing Item
         </button>
         <button
           className={activeTab === "outfit" ? "tab active" : "tab"}
           onClick={() => setActiveTab("outfit")}
           type="button"
         >
-          outfit
+          Outfit
         </button>
       </div>
       <div>
         {activeTab === "clothing" && (
-          <form className="formContainer" onSubmit={handleSubmit}>
+          <form className="formContainer">
             <div className="formContent">
               <div className="image-input-div">
                 <div className="file-upload-wrapper">
@@ -493,11 +493,7 @@ const Add = () => {
           </form>
         )}
 
-        {activeTab === "outfit" && (
-          <div className="formContainer">
-            <AddOutfit />
-          </div>
-        )}
+        {activeTab === "outfit" && <AddOutfit />}
       </div>
     </div>
   );

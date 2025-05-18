@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/AddOutfit.css";
 import Items from "./Items";
+import Draggable from "react-draggable";
 
 interface ClothingItem {
   id: number;

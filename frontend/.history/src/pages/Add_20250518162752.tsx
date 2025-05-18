@@ -162,14 +162,14 @@ const Add = () => {
           onClick={() => setActiveTab("clothing")}
           type="button"
         >
-          clothing item
+          Clothing Item
         </button>
         <button
           className={activeTab === "outfit" ? "tab active" : "tab"}
           onClick={() => setActiveTab("outfit")}
           type="button"
         >
-          outfit
+          Outfit
         </button>
       </div>
       <div>
@@ -493,11 +493,7 @@ const Add = () => {
           </form>
         )}
 
-        {activeTab === "outfit" && (
-          <div className="formContainer">
-            <AddOutfit />
-          </div>
-        )}
+        {activeTab === "outfit" && <AddOutfit />}
       </div>
     </div>
   );

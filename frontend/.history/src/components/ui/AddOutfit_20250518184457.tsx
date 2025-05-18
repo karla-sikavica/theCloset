@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 import "../css/AddOutfit.css";
 import Items from "./Items";
+import Draggable from "react-draggable";
 
 interface ClothingItem {
   id: number;
@@ -62,7 +63,9 @@ const AddOutfit = () => {
 
 export default AddOutfit;
 
-/* 
+
+ */
+
 import React, { useState } from "react";
 import Draggable from "react-draggable";
 import "../css/AddOutfit.css";
@@ -122,4 +125,3 @@ const AddOutfit = () => {
 };
 
 export default AddOutfit;
- */
