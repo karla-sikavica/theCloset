@@ -1,0 +1,39 @@
+  .formContainer {
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .AddContainer {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .formContent {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .image-input-div,
+  .form-div {
+    flex: 1; /* Jednaka širina */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hidden-file-input {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    .formContent {
+      flex-direction: column;
+    }
+  
+    .image-input-div,
+    .form-div {
+      width: 100%;
+    }
+  }

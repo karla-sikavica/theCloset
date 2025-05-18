@@ -1,0 +1,10 @@
+.formContainer {
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .AddContainer {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }

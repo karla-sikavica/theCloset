@@ -1,0 +1,41 @@
+.weather-container {
+    max-width: 320px;
+    padding: 0.5rem;
+/*     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+ */    text-align: center;
+    font-family:'Playwright',  Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    height: 60px;
+  }
+  
+  .temperature-div {
+    font-size: 1.7rem;
+  }
+  
+  .wind-div {
+    font-size: 1rem;
+  }
+  
+  .weather-icon-div {
+    font-size: 3.3rem;
+  }
+
+  @media (max-width: 768px) {
+    .weather-container {
+      height: 45px;
+    }
+    .temperature-div {
+      font-size: 1rem;
+    }
+    
+    .wind-div {
+      font-size: 0.7rem;
+    }
+    
+    .weather-icon-div {
+      font-size: 2rem;
+    }
+  }
+  

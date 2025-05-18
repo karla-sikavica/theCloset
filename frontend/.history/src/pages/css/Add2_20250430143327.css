@@ -1,0 +1,202 @@
+  .formContainer {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .AddContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  .formContent {
+    display: flex;
+    gap: 1rem;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .image-input-div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+  }
+  
+  .form-div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+/*     justify-content: center;
+ */    overflow-y: auto; /* this makes only the form scroll */
+  }
+
+/*   .image-input-div,
+  .form-div {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
+
+  .hidden-file-input {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    .formContent {
+      flex-direction: column;
+    }
+  
+    .image-input-div,
+    .form-div {
+      width: 100%;
+    }
+  }
+
+  input[type="text"],
+input[type="number"],
+input[type="file"],
+input[type="date"],
+select {
+  padding: 2px 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Kalla', sans-serif;
+  font-size: 1.3rem;
+  box-sizing: border-box;
+  text-transform: lowercase;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+  outline: none;
+  border-color: #ff1493;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
+  text-transform: lowercase;
+}
+
+.submitButton {
+    font-family: 'Kalla', sans-serif;
+    padding: 4px;
+    background-color: #ff1493;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100px;
+    box-sizing: border-box;
+    font-size: 20px;
+  }
+  
+  .submitButton:hover {
+    background-color: #ea1285;
+  }
+
+  .toggleColorsButton {
+    background-color: white;
+    font-family: 'Kalla';
+    padding: 4px 8px;
+    font-size: 1.3rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 70px;
+  }
+
+  .colorsContainer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .color-options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .color-option {
+    color: #585858;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: lowercase;
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+  
+  .color-option input[type="checkbox"] {
+    display: none;
+  }
+
+  .file-upload-label {
+    width: 350px;
+    height: 400px;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .file-upload-label:hover {
+    border-color: #ff1493;
+    background-color: #fdf2f8;
+  }
+
+  .input-label-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 1.9rem;
+  }
+
+  .input-label-div label {
+    color: #585858;
+    font-size: 1.5rem;
+    text-shadow: none;
+  }
+
+  .input-label-div input,
+  .input-label-div select {
+    width: 60%;
+    height: 1.9rem;
+  }
+
+  @media (max-width: 768px ) {
+    .input-label-div input,
+    .input-label-div select {
+      width: 50%;
+      height: 1.9rem;
+    }
+  }
+
+
+  

@@ -1,0 +1,27 @@
+.weather-container {
+    max-width: 320px;
+    padding: 0.5rem;
+/*     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+ */    text-align: center;
+    font-family:'Playwright',  Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .temperature-div {
+    font-size: 1.2rem;
+  }
+  
+  .wind-div {
+    font-size: 1rem;
+  }
+  
+  .weather-icon-div {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
