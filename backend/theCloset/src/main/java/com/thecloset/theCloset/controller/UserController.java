@@ -13,7 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Optional;import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 @RestController
 @RequestMapping("/users")
@@ -99,11 +100,23 @@ public class UserController {
             // Check if user already exists
             Optional<User> existingUser = userService.findByUid(uid);
             if (existingUser.isPresent()) {
+                try {
+                    String json = new ObjectMapper().writeValueAsString(existingUser.get());
+                    System.out.println("📤 Backend šalje korisnika (postoji): " + json);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 return ResponseEntity.ok(existingUser.get());
             }
 
             // Otherwise create and save user
             User savedUser = userService.registerFirebaseUser(uid, email, name);
+            try {
+                String json = new ObjectMapper().writeValueAsString(savedUser);
+                System.out.println("📤 Backend šalje korisnika (novi): " + json);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
 
         } catch (FirebaseAuthException e) {

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -72,6 +73,8 @@ public class ClothingItem {
     private Set<Color> colors;
 
     @ManyToMany(mappedBy = "clothingItems")
+    //@JsonBackReference("outfit-clothingItems")
+    @JsonIgnore
     private Set<Outfit> outfits;
 }
 

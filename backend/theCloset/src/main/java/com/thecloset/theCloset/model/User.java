@@ -3,6 +3,7 @@ package com.thecloset.theCloset.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,10 +29,13 @@ public class User {
     @Column(unique = true, nullable = false, length = 50)
     private String email;
 
+    @JsonManagedReference("user-outfits")
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Outfit> outfits;
 
     @JsonManagedReference("user-clothingItems")
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<ClothingItem> clothingItems;
 }
