@@ -123,11 +123,11 @@ const Closet = ({ onDragStart }: ClosetProps) => {
                   onDragStart={onDragStart ? onDragStart(entry) : undefined}
                 />
               </div>
-              {activeTab === "clothing" && (
-                <div className="card-body">
-                  <div className="body-div">{entry.brand}</div>
+              <div className="card-body">
+                <div className="body-div">
+                  {activeTab === "clothing" ? entry.brand : "outfit"}
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

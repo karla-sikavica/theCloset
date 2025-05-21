@@ -1,10 +1,12 @@
 package com.thecloset.theCloset.DTO;
 
 import com.thecloset.theCloset.model.Outfit;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
 public class OutfitDTO {
     private Integer id;
     private String imageUrl;

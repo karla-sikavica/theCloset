@@ -24,7 +24,7 @@ public class OutfitService {
     }
 
     public List<Outfit> getOutfitsByUserId(Integer userId) {
-        return outfitRepository.findByUser_Id(userId);
+        return outfitRepository.findByUserIdWithClothingItems(userId);
     }
 
 }

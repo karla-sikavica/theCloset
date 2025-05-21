@@ -10,11 +10,13 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(exclude = {"clothingItems"})
 @AllArgsConstructor
 public class Outfit {
     @Id
@@ -25,9 +27,9 @@ public class Outfit {
     private String imageUrl;
 
     @ManyToOne
-    @JsonBackReference("user-outfits")
+    //@JsonBackReference("user-outfits")
     @JoinColumn(name = "user_id", nullable = false)
-    //@JsonIgnoreProperties({"outfits", "clothingItems"})
+    @JsonIgnoreProperties({"outfits", "clothingItems"})
     private User user;
 
     /*@ManyToMany

@@ -2,12 +2,14 @@ package com.thecloset.theCloset.DTO;
 
 import com.thecloset.theCloset.model.ClothingItem;
 import com.thecloset.theCloset.model.Color;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Getter
 public class ClothingItemDTO {
     private Integer id;
     private String name;
