@@ -17,8 +17,8 @@ type Props = {
 
 // Funkcija koja mapira weathercode u ikonicu
 const getWeatherIcon = (code: number): React.ReactElement => {
-  if ([0].includes(code)) return <WiIcons.WiDaySunny color="#f0ebd8" />;
-  if ([1, 2, 3].includes(code)) return <WiIcons.WiDaySunny color="#f0ebd8" />;
+  if ([0].includes(code)) return <WiIcons.WiSunny color="#f0ebd8" />;
+  if ([1, 2, 3].includes(code)) return <WiIcons.WiDayCloudy color="#f0ebd8" />;
   if ([45, 48].includes(code)) return <WiIcons.WiFog color="#f0ebd8" />;
   if ([51, 53, 55, 61, 63, 65].includes(code))
     return <WiIcons.WiRain color="#f0ebd8" />;

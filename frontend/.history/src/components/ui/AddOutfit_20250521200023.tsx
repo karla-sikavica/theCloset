@@ -7,7 +7,6 @@ import html2canvas from "html2canvas";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase"; // prilagodi put ako treba
 import { useCurrentUser } from "../../hooks/useCurrentUser";
-import domtoimage from "dom-to-image-more";
 
 interface ClothingItem {
   id: number;
@@ -22,8 +21,7 @@ const AddOutfit = () => {
     x: 0,
     y: 0,
   });
-  const canvasRef = useRef<HTMLDivElement>(null);
-  const [outfitAdded, setOutfitAdded] = useState(false);
+
   const [itemsOnCanvas, setItemsOnCanvas] = useState<
     {
       item: ClothingItem;
@@ -43,11 +41,9 @@ const AddOutfit = () => {
       return;
     }
 
-    if (!canvasRef.current) {
-      alert("Canvas nije pronađen!");
-      return;
-    }
-    const canvasElement = canvasRef.current;
+    const canvasElement = document.querySelector(
+      ".canvas-inner"
+    ) as HTMLElement;
 
     if (!canvasElement || itemsOnCanvas.length === 0) {
       alert("Canvas je prazan!");
@@ -69,22 +65,11 @@ const AddOutfit = () => {
             })
         )
       );
-      await new Promise((resolve) => requestAnimationFrame(resolve));
-      /*
+
       const canvasImage = await html2canvas(canvasElement);
-      console.log("Rezultat html2canvas:", canvasImage);
-      document.body.appendChild(canvasImage);
-
-      console.log("Canvas size:", canvasImage.width, canvasImage.height);
-      console.log(
-        "Canvas toDataURL (skraćeno):",
-        canvasImage.toDataURL().slice(0, 100)
-      );
-
-       const blob = await new Promise<Blob | null>((resolve) =>
+      const blob = await new Promise<Blob | null>((resolve) =>
         canvasImage.toBlob((b) => resolve(b), "image/png")
-      ); */
-      const blob = await domtoimage.toBlob(canvasElement);
+      );
 
       if (!blob) throw new Error("Slika se nije mogla generirati.");
 
@@ -121,7 +106,7 @@ const AddOutfit = () => {
       });
 
       if (response.ok) {
-        setOutfitAdded(true);
+        alert("Outfit uspješno spremljen!");
       } else {
         console.error("Neuspješno:", await response.text());
       }
@@ -134,6 +119,7 @@ const AddOutfit = () => {
     const data = e.dataTransfer.getData("application/json");
     const item: ClothingItem = JSON.parse(data);
     const canvasRect = e.currentTarget.getBoundingClientRect();
+    const canvasRef = useRef<HTMLDivElement>(null);
 
     const x = e.clientX - canvasRect.left;
     const y = e.clientY - canvasRect.top;
@@ -234,80 +220,59 @@ const AddOutfit = () => {
     setItemsOnCanvas((prev) => prev.filter((_, idx) => idx !== indexToDelete));
   };
 
-  useEffect(() => {
-    if (outfitAdded) {
-      const timer = setTimeout(() => {
-        setOutfitAdded(false);
-        setItemsOnCanvas([]); // Po želji očisti canvas
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [outfitAdded]);
-
   return (
     <div className="outfit-container">
-      {outfitAdded ? (
-        <div className="confirmation-message-outfit">your outfit is added</div>
-      ) : (
-        <>
-          <div
-            className="canvas"
-            onDrop={handleDrop}
-            onDragOver={(e) => e.preventDefault()}
-          >
-            <div className="canvas-inner" ref={canvasRef}>
-              {itemsOnCanvas.map((entry, index) => (
-                <div
-                  key={index}
-                  className="canvas-item-wrapper"
-                  style={{
-                    top: `${entry.y}px`,
-                    left: `${entry.x}px`,
-                    width: `${entry.width}px`,
-                    height: `${entry.height}px`,
-                  }}
-                  onMouseDown={(e) =>
-                    handleMouseDown(e, index, entry.x, entry.y)
-                  }
-                >
-                  <img
-                    src={entry.item.imageUrl}
-                    alt={entry.item.name}
-                    className="canvas-item"
-                    crossOrigin="anonymous"
-                    style={{ width: "100%", height: "100%" }}
-                  />
-                  <div
-                    className="resize-handle"
-                    onMouseDown={(e) => handleResizeMouseDown(e, index)}
-                  >
-                    <BsArrowsFullscreen />
-                  </div>
-                  <button
-                    className="delete-button"
-                    onClick={() => handleDelete(index)}
-                  >
-                    <IoClose />
-                  </button>
-                </div>
-              ))}
+      <div
+        className="canvas"
+        onDrop={handleDrop}
+        onDragOver={(e) => e.preventDefault()}
+      >
+        {" "}
+        <div className="canvas-inner" ref={canvasRef}>
+          {itemsOnCanvas.map((entry, index) => (
+            <div
+              key={index}
+              className="canvas-item-wrapper"
+              style={{
+                top: `${entry.y}px`,
+                left: `${entry.x}px`,
+                width: `${entry.width}px`,
+                height: `${entry.height}px`,
+              }}
+              onMouseDown={(e) => handleMouseDown(e, index, entry.x, entry.y)}
+            >
+              <img
+                src={entry.item.imageUrl}
+                alt={entry.item.name}
+                className="canvas-item"
+                style={{ width: "100%", height: "100%" }}
+              />
+              <div
+                className="resize-handle"
+                onMouseDown={(e) => handleResizeMouseDown(e, index)}
+              >
+                <BsArrowsFullscreen />
+              </div>
+              <button
+                className="delete-button"
+                onClick={() => handleDelete(index)}
+              >
+                <IoClose />
+              </button>
             </div>
-          </div>
+          ))}
+        </div>
+      </div>
 
-          <div className="closet-panel">
-            <Items
-              onDragStart={(item: ClothingItem) => (e: React.DragEvent) =>
-                e.dataTransfer.setData(
-                  "application/json",
-                  JSON.stringify(item)
-                )}
-            />
-            <button onClick={saveOutfitToBackend} className="submitButton">
-              add outfit
-            </button>
-          </div>
-        </>
-      )}
+      <div className="closet-panel">
+        <Items
+          onDragStart={(item: ClothingItem) => (e: React.DragEvent) =>
+            e.dataTransfer.setData("application/json", JSON.stringify(item))}
+        />
+        <button onClick={saveOutfitToBackend} className="submitButton">
+          add outfit
+        </button>
+      </div>
     </div>
   );
 };

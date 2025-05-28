@@ -7,7 +7,6 @@ import html2canvas from "html2canvas";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase"; // prilagodi put ako treba
 import { useCurrentUser } from "../../hooks/useCurrentUser";
-import domtoimage from "dom-to-image-more";
 
 interface ClothingItem {
   id: number;
@@ -69,8 +68,7 @@ const AddOutfit = () => {
             })
         )
       );
-      await new Promise((resolve) => requestAnimationFrame(resolve));
-      /*
+
       const canvasImage = await html2canvas(canvasElement);
       console.log("Rezultat html2canvas:", canvasImage);
       document.body.appendChild(canvasImage);
@@ -81,10 +79,9 @@ const AddOutfit = () => {
         canvasImage.toDataURL().slice(0, 100)
       );
 
-       const blob = await new Promise<Blob | null>((resolve) =>
+      const blob = await new Promise<Blob | null>((resolve) =>
         canvasImage.toBlob((b) => resolve(b), "image/png")
-      ); */
-      const blob = await domtoimage.toBlob(canvasElement);
+      );
 
       if (!blob) throw new Error("Slika se nije mogla generirati.");
 
@@ -233,16 +230,6 @@ const AddOutfit = () => {
   const handleDelete = (indexToDelete: number) => {
     setItemsOnCanvas((prev) => prev.filter((_, idx) => idx !== indexToDelete));
   };
-
-  useEffect(() => {
-    if (outfitAdded) {
-      const timer = setTimeout(() => {
-        setOutfitAdded(false);
-        setItemsOnCanvas([]); // Po želji očisti canvas
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [outfitAdded]);
 
   return (
     <div className="outfit-container">

@@ -252,7 +252,7 @@ const Add = () => {
         });
         setImage(null);
         setPreviewUrl(null);
-      }, 2000);
+      }, 1000000000);
     } catch (error) {
       console.error("Error uploading image or sending data", error);
     }
@@ -333,9 +333,13 @@ const Add = () => {
         {activeTab === "clothing" && (
           <>
             {itemAdded ? (
-              <div className="confirmation-message">
-                your clothing item is added
-              </div>
+              <form className="formContainer" onSubmit={handleSubmit}>
+                <div className="formContent">
+                  <div className="confirmation-message">
+                    your clothing item is added
+                  </div>
+                </div>
+              </form>
             ) : (
               <form className="formContainer" onSubmit={handleSubmit}>
                 <div className="formContent">

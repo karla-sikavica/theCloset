@@ -130,16 +130,17 @@
     height: 100%;
     max-width: 1000px;
     margin: 0 auto;
+    background-color: #f0ebd8;
+    border: 2px solid #ccc;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: #333;
     text-align: center;
     box-sizing: border-box;
-    text-shadow: none;
     animation: fadeIn 0.5s ease-in-out;
   }
   

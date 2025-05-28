@@ -7,7 +7,7 @@ import html2canvas from "html2canvas";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase"; // prilagodi put ako treba
 import { useCurrentUser } from "../../hooks/useCurrentUser";
-import domtoimage from "dom-to-image-more";
+import domtoimage from "dom-to-image";
 
 interface ClothingItem {
   id: number;

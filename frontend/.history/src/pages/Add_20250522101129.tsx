@@ -252,7 +252,7 @@ const Add = () => {
         });
         setImage(null);
         setPreviewUrl(null);
-      }, 2000);
+      }, 1000000000);
     } catch (error) {
       console.error("Error uploading image or sending data", error);
     }
