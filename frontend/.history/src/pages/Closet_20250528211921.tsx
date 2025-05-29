@@ -69,6 +69,7 @@ const Closet = ({ onDragStart }: ClosetProps) => {
             item={selectedItem}
             onClose={() => setSelectedItem(null)}
             onDelete={(id) => {
+              // Call your delete API here
               console.log("Delete item with id:", id);
               setSelectedItem(null);
             }}

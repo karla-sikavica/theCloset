@@ -43,6 +43,11 @@ public class ClothingItemService {
         return clothingItemRepository.save(clothingItem);
     }
 
+    public void deleteItem(Long id) {
+        clothingItemRepository.deleteById(id);
+    }
+
+
 }
 
 

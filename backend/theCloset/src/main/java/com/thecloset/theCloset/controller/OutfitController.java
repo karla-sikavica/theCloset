@@ -48,4 +48,10 @@ public class OutfitController {
 
         return ResponseEntity.ok(outfitDTOs);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteOutfit(@PathVariable Integer id) {
+        outfitService.deleteOutfit(id);
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -215,8 +215,6 @@ const Add = () => {
       const downloadURL = await getDownloadURL(storageRef);
       console.log("download url: ", downloadURL);
       // 3. Prepare data to send to backend (imageUrl is now Firebase link)
-      const { no_of_wears, date_acquired, ...rest } = clothingItem;
-
       const formData = {
         ...clothingItem,
         imageUrl: downloadURL,
@@ -226,8 +224,6 @@ const Add = () => {
           name: color.name.trim(),
         })),
         user,
-        noOfWears: clothingItem.no_of_wears,
-        dateAcquired: clothingItem.date_acquired,
       };
 
       console.log("formdata: ", formData);
@@ -251,8 +247,8 @@ const Add = () => {
           imageUrl: "",
           price: "0",
           gift: false,
-          no_of_wears: 0,
-          date_acquired: "",
+          noOfWears: 0,
+          dateAcquired: "",
         });
         setImage(null);
         setPreviewUrl(null);

@@ -4,10 +4,7 @@ import com.thecloset.theCloset.model.ClothingItem;
 import com.thecloset.theCloset.service.ClothingItemService;
 import com.thecloset.theCloset.service.OutfitService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/item")
@@ -22,5 +19,11 @@ public class ClothingItemController {
     public ResponseEntity<ClothingItem> createItem(@RequestBody ClothingItem clothingItem){
         ClothingItem savedClothingItem = clothingItemService.saveItem(clothingItem);
         return ResponseEntity.ok(savedClothingItem);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
+        clothingItemService.deleteItem(id);
+        return ResponseEntity.noContent().build(); // 204 No Content
     }
 }

@@ -3,7 +3,6 @@ import { useCurrentUser } from "../hooks/useCurrentUser";
 import { useFetchItems } from "../hooks/useFetchItems";
 import { useFetchOutfits } from "../hooks/useFetchOutfits";
 import "./css/Closet.css";
-import ClothingItem from "../components/ui/ClothingItem";
 
 interface ClosetProps {
   onDragStart?: (item: any) => (e: React.DragEvent) => void;
@@ -52,7 +51,7 @@ const Closet = ({ onDragStart }: ClosetProps) => {
                   src={entry.imageUrl}
                   alt={entry.name || "outfit"}
                   draggable
-                  onClick={() => setSelectedItem(entry)}
+                  onClick={() => setSelectedItem(entry)} // New line to open detail
                   onDragStart={onDragStart ? onDragStart(entry) : undefined}
                 />
               </div>
@@ -64,16 +63,6 @@ const Closet = ({ onDragStart }: ClosetProps) => {
             </div>
           ))}
         </div>
-        {selectedItem && (
-          <ClothingItem
-            item={selectedItem}
-            onClose={() => setSelectedItem(null)}
-            onDelete={(id) => {
-              console.log("Delete item with id:", id);
-              setSelectedItem(null);
-            }}
-          />
-        )}
       </div>
     </div>
   );
