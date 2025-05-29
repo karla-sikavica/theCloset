@@ -154,7 +154,7 @@ const ClothingItem = ({
               <button
                 className="worn-btn"
                 onClick={handleWornToday}
-                disabled={isUpdating || alreadyWornToday}
+                disabled={isUpdating}
               >
                 worn today
               </button>
@@ -162,9 +162,6 @@ const ClothingItem = ({
                 delete
               </button>
             </div>
-            {alreadyWornToday && (
-              <div className="info-text">Already marked as worn today</div>
-            )}
           </div>
         </div>
       </div>

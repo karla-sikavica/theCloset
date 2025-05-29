@@ -20,7 +20,6 @@ const Closet = ({ onDragStart }: ClosetProps) => {
   const [selectedItem, setSelectedItem] = useState<any | null>(null);
 
   const dataToDisplay = activeTab === "clothing" ? items : outfits;
-  const sortedData = [...dataToDisplay].sort((a, b) => a.id - b.id);
 
   return (
     <div className="closet-wrapper">
@@ -45,7 +44,7 @@ const Closet = ({ onDragStart }: ClosetProps) => {
 
       <div className="card-container">
         <div className="card-div">
-          {sortedData.map((entry) => (
+          {dataToDisplay.map((entry) => (
             <div key={entry.id} className="card">
               <div className="image-div">
                 <img

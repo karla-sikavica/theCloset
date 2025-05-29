@@ -47,6 +47,13 @@ public class ClothingItemService {
         clothingItemRepository.deleteById(id);
     }
 
+    public ClothingItem incrementWearCount(Long id) {
+        ClothingItem item = clothingItemRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Item not found with id " + id));
+        item.setNoOfWears(item.getNoOfWears() + 1);
+        return clothingItemRepository.save(item);
+    }
+
 
 }
 

@@ -13,12 +13,6 @@ const ClothingItem = ({
 }) => {
   const [wears, setWears] = useState(item.noOfWears || 0);
   const [isUpdating, setIsUpdating] = useState(false);
-  const todayKey = `worn-${item.id}`;
-  const today = new Date().toISOString().split("T")[0]; // samo "YYYY-MM-DD"
-
-  const [alreadyWornToday, setAlreadyWornToday] = useState(
-    localStorage.getItem(todayKey) === today
-  );
 
   const isOutfit = Array.isArray(item.items) && item.items.length > 0;
 
@@ -27,28 +21,20 @@ const ClothingItem = ({
       setIsUpdating(true);
 
       if (isOutfit) {
+        // Za svaki item unutar outfita šaljemo PUT zahtjev
         const updatePromises = item.items.map((clothing: any) =>
           axios.put(`http://localhost:8080/item/${clothing.id}/wear`)
         );
 
         const responses = await Promise.all(updatePromises);
-        localStorage.setItem(todayKey, today);
-        setAlreadyWornToday(true);
 
-        // Ručno povećaj brojače u lokalnom item objektu
-        responses.forEach((res, i) => {
-          item.items[i].noOfWears = res.data.noOfWears;
-        });
-
-        // Nema setWears ovdje – koristi calculateWears() dolje
+        // Ažuriraj lokalno wears samo ako želiš prikaz npr. za prvi item
+        setWears(responses[0]?.data?.no_of_wears ?? 0);
       } else {
         const response = await axios.put(
           `http://localhost:8080/item/${item.id}/wear`
         );
-        localStorage.setItem(todayKey, today);
-        setAlreadyWornToday(true);
-
-        setWears(response.data.noOfWears);
+        setWears(response.data.no_of_wears);
       }
     } catch (error) {
       console.error("Failed to update wear count", error);
@@ -82,24 +68,6 @@ const ClothingItem = ({
     ? new Date(item.dateAcquired).toLocaleDateString("hr-HR")
     : "n/a";
 
-  const calculateWears = () => {
-    if (isOutfit) {
-      return item.items.reduce(
-        (sum: number, item: any) => sum + (item.noOfWears || 0),
-        0
-      );
-    } else {
-      return wears;
-    }
-  };
-
-  const calculateCostPerWear = () => {
-    const totalWears = calculateWears();
-    return totalWears > 0
-      ? (parseFloat(item.price) / totalWears).toFixed(2)
-      : "∞";
-  };
-
   return (
     <div className="clothing-detail-overlay">
       <div className="clothing-detail-modal">
@@ -117,14 +85,13 @@ const ClothingItem = ({
                   {item.name}
                 </div>
                 <div className="data-div" id="cost-per-wear">
-                  cost per wear: {calculateCostPerWear()}
+                  cost per wear: {costPerWear}
                 </div>
                 <div className="data-div">brand: {item.brand}</div>
                 <div className="data-div">material: {item.material}</div>
                 <div className="data-div">price: {item.price}€</div>
                 <div className="data-div">size: {item.size}</div>
-                <div className="data-div">times worn: {calculateWears()}</div>
-
+                <div className="data-div">times worn: {wears}</div>
                 <div className="data-div">date acquired: {formattedDate}</div>
                 <div className="data-div">gift: {item.gift ? "yes" : "no"}</div>
               </>
@@ -154,7 +121,7 @@ const ClothingItem = ({
               <button
                 className="worn-btn"
                 onClick={handleWornToday}
-                disabled={isUpdating || alreadyWornToday}
+                disabled={isUpdating}
               >
                 worn today
               </button>
@@ -162,9 +129,6 @@ const ClothingItem = ({
                 delete
               </button>
             </div>
-            {alreadyWornToday && (
-              <div className="info-text">Already marked as worn today</div>
-            )}
           </div>
         </div>
       </div>

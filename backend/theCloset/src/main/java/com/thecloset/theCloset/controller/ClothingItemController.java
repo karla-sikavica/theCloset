@@ -26,4 +26,11 @@ public class ClothingItemController {
         clothingItemService.deleteItem(id);
         return ResponseEntity.noContent().build(); // 204 No Content
     }
+
+    @PutMapping("/{id}/wear")
+    public ResponseEntity<ClothingItem> incrementWearCount(@PathVariable Long id) {
+        ClothingItem updatedItem = clothingItemService.incrementWearCount(id);
+        return ResponseEntity.ok(updatedItem);
+    }
+
 }

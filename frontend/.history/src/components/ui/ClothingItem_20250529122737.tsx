@@ -32,8 +32,6 @@ const ClothingItem = ({
         );
 
         const responses = await Promise.all(updatePromises);
-        localStorage.setItem(todayKey, today);
-        setAlreadyWornToday(true);
 
         // Ručno povećaj brojače u lokalnom item objektu
         responses.forEach((res, i) => {
@@ -45,9 +43,6 @@ const ClothingItem = ({
         const response = await axios.put(
           `http://localhost:8080/item/${item.id}/wear`
         );
-        localStorage.setItem(todayKey, today);
-        setAlreadyWornToday(true);
-
         setWears(response.data.noOfWears);
       }
     } catch (error) {
@@ -154,7 +149,7 @@ const ClothingItem = ({
               <button
                 className="worn-btn"
                 onClick={handleWornToday}
-                disabled={isUpdating || alreadyWornToday}
+                disabled={isUpdating}
               >
                 worn today
               </button>
@@ -162,9 +157,6 @@ const ClothingItem = ({
                 delete
               </button>
             </div>
-            {alreadyWornToday && (
-              <div className="info-text">Already marked as worn today</div>
-            )}
           </div>
         </div>
       </div>

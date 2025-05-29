@@ -11,52 +11,24 @@ const ClothingItem = ({
   onClose: () => void;
   onDelete: (id: number) => void;
 }) => {
-  const [wears, setWears] = useState(item.noOfWears || 0);
+  const [wears, setWears] = useState(item.no_of_wears || 0);
   const [isUpdating, setIsUpdating] = useState(false);
-  const todayKey = `worn-${item.id}`;
-  const today = new Date().toISOString().split("T")[0]; // samo "YYYY-MM-DD"
-
-  const [alreadyWornToday, setAlreadyWornToday] = useState(
-    localStorage.getItem(todayKey) === today
-  );
 
   const isOutfit = Array.isArray(item.items) && item.items.length > 0;
 
   const handleWornToday = async () => {
     try {
       setIsUpdating(true);
-
-      if (isOutfit) {
-        const updatePromises = item.items.map((clothing: any) =>
-          axios.put(`http://localhost:8080/item/${clothing.id}/wear`)
-        );
-
-        const responses = await Promise.all(updatePromises);
-        localStorage.setItem(todayKey, today);
-        setAlreadyWornToday(true);
-
-        // Ručno povećaj brojače u lokalnom item objektu
-        responses.forEach((res, i) => {
-          item.items[i].noOfWears = res.data.noOfWears;
-        });
-
-        // Nema setWears ovdje – koristi calculateWears() dolje
-      } else {
-        const response = await axios.put(
-          `http://localhost:8080/item/${item.id}/wear`
-        );
-        localStorage.setItem(todayKey, today);
-        setAlreadyWornToday(true);
-
-        setWears(response.data.noOfWears);
-      }
+      const response = await axios.put(
+        `http://localhost:8080/item/${item.id}/wear`
+      );
+      setWears(response.data.no_of_wears);
     } catch (error) {
       console.error("Failed to update wear count", error);
     } finally {
       setIsUpdating(false);
     }
   };
-
   console.log("Item data:", item);
 
   const handleDelete = async () => {
@@ -78,28 +50,6 @@ const ClothingItem = ({
   const costPerWear =
     wears > 0 ? (parseFloat(item.price) / wears).toFixed(2) : "∞";
 
-  const formattedDate = item.dateAcquired
-    ? new Date(item.dateAcquired).toLocaleDateString("hr-HR")
-    : "n/a";
-
-  const calculateWears = () => {
-    if (isOutfit) {
-      return item.items.reduce(
-        (sum: number, item: any) => sum + (item.noOfWears || 0),
-        0
-      );
-    } else {
-      return wears;
-    }
-  };
-
-  const calculateCostPerWear = () => {
-    const totalWears = calculateWears();
-    return totalWears > 0
-      ? (parseFloat(item.price) / totalWears).toFixed(2)
-      : "∞";
-  };
-
   return (
     <div className="clothing-detail-overlay">
       <div className="clothing-detail-modal">
@@ -117,20 +67,23 @@ const ClothingItem = ({
                   {item.name}
                 </div>
                 <div className="data-div" id="cost-per-wear">
-                  cost per wear: {calculateCostPerWear()}
+                  cost per wear: {costPerWear}
                 </div>
                 <div className="data-div">brand: {item.brand}</div>
                 <div className="data-div">material: {item.material}</div>
                 <div className="data-div">price: {item.price}€</div>
                 <div className="data-div">size: {item.size}</div>
-                <div className="data-div">times worn: {calculateWears()}</div>
+                <div className="data-div">times worn: {wears}</div>
 
-                <div className="data-div">date acquired: {formattedDate}</div>
-                <div className="data-div">gift: {item.gift ? "yes" : "no"}</div>
+                <div className="data-div">
+                  date acquired: {item.date_acquired}
+                </div>
+                <div className="data-div">gift: {item.gift ? "Yes" : "No"}</div>
               </>
             )}
             {isOutfit && (
               <>
+                <div style={{ marginTop: "1rem" }}>Outfit preview</div>
                 <div className="outfit-card-grid">
                   {item.items.map((clothing: any) => (
                     <div key={clothing.id} className="card">
@@ -154,7 +107,7 @@ const ClothingItem = ({
               <button
                 className="worn-btn"
                 onClick={handleWornToday}
-                disabled={isUpdating || alreadyWornToday}
+                disabled={isUpdating}
               >
                 worn today
               </button>
@@ -162,9 +115,6 @@ const ClothingItem = ({
                 delete
               </button>
             </div>
-            {alreadyWornToday && (
-              <div className="info-text">Already marked as worn today</div>
-            )}
           </div>
         </div>
       </div>

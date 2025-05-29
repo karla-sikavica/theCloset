@@ -162,9 +162,6 @@ const ClothingItem = ({
                 delete
               </button>
             </div>
-            {alreadyWornToday && (
-              <div className="info-text">Already marked as worn today</div>
-            )}
           </div>
         </div>
       </div>

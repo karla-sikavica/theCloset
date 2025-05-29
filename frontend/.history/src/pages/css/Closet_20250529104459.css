@@ -40,12 +40,14 @@
   
   .card-body {
     text-align: center;
+    text-shadow: none;
   }
   
   .body-div {
     font-size: 1.2rem;
     color: #373737;
-  line-height: 1.2;
+    line-height: 1;
+    padding-top: 4px;
   }
   /* 
   .card-body p:last-child {
@@ -69,5 +71,29 @@
     .card-container{
       padding: 1.5rem;
     }
+  }
+
+  .closet-tab-switch {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .closet-tab {
+    font-size: 24px;
+    font-family: 'Kalla';
+    padding: 5px 10px;
+    background-color: #eee;
+    color: #424242;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .closet-tab.active {
+    background-color: #fff;
+    border-bottom: 2px solid white;
   }
   
