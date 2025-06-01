@@ -1,0 +1,13 @@
+.recharts-pie-label-text {
+    text-shadow: none !important;
+    fill: #333 !important; 
+    font-weight: 500;
+  }
+
+  .recharts-legend-item-text {
+    fill: #222 !important; /* fill jer je svg tekst, !important da nadjača default */
+    text-shadow: none !important; /* makni sjenu ako želiš */
+    font-weight: 600;
+    color: #333;
+  }
+  

@@ -1,0 +1,202 @@
+/* Title na vrhu profila */
+.profile-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 2rem auto;
+    color: #373737;
+    text-shadow: none;
+  }
+  
+  /* Wrapper za svaku sekciju */
+  .most-least-div {
+    margin-top: 2.5rem;
+    max-width: 1200px;
+    background-color: #faf6ea;
+    padding-bottom: 1rem;
+  }
+  
+  /* Naslov svake sekcije */
+  .most-least-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #373737;
+    text-align: center;
+    text-shadow: none;
+  }
+  
+  /* Slika */
+  .image-div {
+    width: 100%;
+    aspect-ratio: 7/8;
+    background-color: #e9ecef;
+    overflow: hidden;
+  }
+  
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Tekst unutar kartice */
+  .card-body {
+    text-align: center;
+  }
+  
+  .body-div {
+    font-size: 1.1rem;
+    color: #373737;
+    line-height: 1.3;
+  }
+  /* Title na vrhu profila */
+.profile-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 2rem auto;
+    color: #373737;
+    text-shadow: none;
+  }
+  
+  /* Grid wrapper */
+  .card-container-profile {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+  }
+  
+  /* Grid layout */
+  .card-div-profile {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.5rem;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  /* Kartica */
+  .card-profile {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    overflow: hidden;
+  }
+  
+  .card-profile:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Slika */
+  .image-div-profile {
+    width: 100%;
+    aspect-ratio: 7 / 8;
+    background-color: #e9ecef;
+    overflow: hidden;
+  }
+  
+  .img-profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Sadržaj kartice */
+  .card-body-profile {
+    text-align: center;
+    padding: 0.25rem 0;
+    text-shadow: none;
+  }
+  
+  .body-div-profile {
+    font-size: 1.5rem;
+    color: #373737;
+    line-height: 1.3;
+  }
+  
+  /* Ako prikazuješ broj nošenja ili cost per wear */
+  .body-extra-profile {
+    font-size: 1.5rem;
+    color: #6c757d;    
+    line-height: 1.3;
+  }
+  
+
+  .categories-section-profile {
+    margin: 3rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+  }
+  
+  .categories-title-profile {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #373737;
+    text-align: center;
+    text-shadow: none;
+  }
+  
+  .categories-grid-profile {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  
+  .category-box-profile {
+    background-color: #faf6ea; /* svjetlija verzija f0ebd8 */
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-shadow: none;
+  }
+  
+  .category-box-profile:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  
+  .category-name-profile {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #373737;
+    text-transform: lowercase;
+  }
+  
+  .category-count-profile {
+    font-size: 1.8rem;
+    color: #555;
+  }
+
+  .outfit-data-profile {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #373737;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .total-price, .avg-cpw{
+    font-size: 3rem;
+    text-shadow: none;
+  }
+
+  .total-price-title, .avg-cpw-title{
+    font-size: 1.5rem;
+    text-shadow: none;
+  }
+  
+  .pie-charts{
+    background-color: #faf6ea;
+    margin-top: 2.5rem;
+  }

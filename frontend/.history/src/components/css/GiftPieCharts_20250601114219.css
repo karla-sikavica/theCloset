@@ -1,0 +1,13 @@
+.recharts-pie-label-text {
+    text-shadow: none !important;
+    fill: #333 !important; 
+    font-weight: 500;
+  }
+
+  .recharts-legend-item-text {
+/*     fill: #222 !important;
+ */    text-shadow: none !important;
+    font-weight: 600;
+    color: #333 !important;
+  }
+  

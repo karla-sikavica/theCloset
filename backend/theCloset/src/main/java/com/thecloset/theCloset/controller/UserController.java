@@ -1,5 +1,6 @@
 package com.thecloset.theCloset.controller;
 
+import com.thecloset.theCloset.DTO.ClothingItemDTO;
 import com.thecloset.theCloset.model.ClothingItem;
 import com.thecloset.theCloset.model.Outfit;
 import com.thecloset.theCloset.model.User;
@@ -73,12 +74,25 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/{id}/items")
+    /*@GetMapping("/{id}/items")
     public ResponseEntity<List<ClothingItem>> getUserClothingItems(@PathVariable Integer id) {
         return userService.getUserById(id)
                 .map(user -> ResponseEntity.ok(user.getClothingItems()))
                 .orElse(ResponseEntity.notFound().build());
+    }*/
+
+    @GetMapping("/{id}/items")
+    public ResponseEntity<List<ClothingItemDTO>> getUserClothingItems(@PathVariable Integer id) {
+        return userService.getUserById(id)
+                .map(user -> {
+                    List<ClothingItemDTO> dtoList = user.getClothingItems().stream()
+                            .map(ClothingItemDTO::new)
+                            .toList();
+                    return ResponseEntity.ok(dtoList);
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
+
 
 
     @PostMapping

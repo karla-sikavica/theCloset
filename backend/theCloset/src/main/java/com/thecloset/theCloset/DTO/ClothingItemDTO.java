@@ -22,9 +22,9 @@ public class ClothingItemDTO {
     private LocalDate dateAcquired;
     private String season;
     private String imageUrl;
-    private String categoryName;
+    private String category;
     private String subcategoryName;
-    private Set<String> colorNames;
+    private Set<String> colors;
 
     public ClothingItemDTO(ClothingItem item) {
         this.id = item.getId();
@@ -38,9 +38,9 @@ public class ClothingItemDTO {
         this.dateAcquired = item.getDateAcquired();
         this.season = item.getSeason();
         this.imageUrl = item.getImageUrl();
-        this.categoryName = item.getCategory() != null ? item.getCategory().getName() : null;
+        this.category = item.getCategory() != null ? item.getCategory().getName() : null;
         this.subcategoryName = item.getSubcategory() != null ? item.getSubcategory().getName() : null;
-        this.colorNames = item.getColors() != null
+        this.colors = item.getColors() != null
                 ? item.getColors().stream().map(Color::getName).collect(Collectors.toSet())
                 : null;
     }

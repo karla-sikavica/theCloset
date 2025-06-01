@@ -1,0 +1,127 @@
+/* Title na vrhu profila */
+.profile-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 2rem auto;
+    color: #373737;
+    text-shadow: none;
+  }
+  
+  /* Wrapper za svaku sekciju */
+  .most-least-div {
+    margin: 2.5rem auto;
+    max-width: 1200px;
+    background-color: #f1eee3;
+    padding-bottom: 1rem;
+  }
+  
+  /* Naslov svake sekcije */
+  .most-least-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #373737;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: none;
+  }
+  
+  /* Slika */
+  .image-div {
+    width: 100%;
+    aspect-ratio: 7/8;
+    background-color: #e9ecef;
+    overflow: hidden;
+  }
+  
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Tekst unutar kartice */
+  .card-body {
+    text-align: center;
+  }
+  
+  .body-div {
+    font-size: 1.1rem;
+    color: #373737;
+    line-height: 1.3;
+  }
+  /* Title na vrhu profila */
+.profile-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 2rem auto;
+    color: #373737;
+    text-shadow: none;
+  }
+  
+  /* Grid wrapper */
+  .card-container-profile {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+  }
+  
+  /* Grid layout */
+  .card-div-profile {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.5rem;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  /* Kartica */
+  .card-profile {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    overflow: hidden;
+  }
+  
+  .card-profile:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Slika */
+  .image-div-profile {
+    width: 100%;
+    aspect-ratio: 7 / 8;
+    background-color: #e9ecef;
+    overflow: hidden;
+  }
+  
+  .img-profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Sadržaj kartice */
+  .card-body-profile {
+    text-align: center;
+    padding: 0.25rem 0;
+    text-shadow: none;
+  }
+  
+  .body-div-profile {
+    font-size: 1.2rem;
+    color: #373737;
+    line-height: 1.3;
+  }
+  
+  /* Ako prikazuješ broj nošenja ili cost per wear */
+  .body-extra-profile {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-top: 2px;
+  }
+  

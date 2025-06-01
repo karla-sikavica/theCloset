@@ -1,0 +1,185 @@
+/* ClothingItemDetail.css */
+.clothing-detail-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    color: rgb(51, 51, 51);
+  }
+  
+  .clothing-detail-modal {
+    background: #f0ebd8;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    max-width: 800px;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .clothing-detail-content {
+    display: flex;
+  }
+  
+  .detail-image img {
+    width: 250px;
+    max-height: 333px;
+    border-radius: 10px;
+  }
+
+  .detail-image{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .detail-form {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-shadow: none;
+    background-color: #faf6ea;
+  }
+  
+  .close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .delete-btn {
+    font-family: 'Kalla';
+    background-color: #ffffff;
+    color: #ff1493;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.5rem;
+  }
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .worn-btn {
+    font-family: 'Kalla';
+    background-color: #ff1493;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.5rem;
+
+  }
+  
+  .worn-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .data-div{
+    font-size: 1.2rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  #item-name, #cost-per-wear{
+    font-size: 1.8rem;
+    height: 2rem;
+  }
+  
+  .outfit-items-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+  
+  .outfit-item-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px;
+    width: 120px;
+    text-align: center;
+    background: #f9f9f9;
+  }
+  
+  .outfit-item-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+  
+  .outfit-item-info .data-div {
+    font-size: 0.85rem;
+    margin-top: 4px;
+  }
+
+  /* .outfit-card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  } */
+
+  .outfit-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, max-content));
+max-width: 400px;
+margin-left: auto;
+margin-right: auto;
+
+    gap: 0.5rem;
+    justify-items: center;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  
+  .outfit-card-grid .card {
+    flex: 0 1 22%;
+    max-width: 22%;
+    min-width: 70px;
+  }
+  
+ /*  @media (max-width: 1024px) {
+    .outfit-card-grid .card {
+      flex: 0 1 30%;
+      max-width: 30%;
+    }
+  } */
+  
+  @media (max-width: 768px) {
+    .outfit-card-grid .card {
+      flex: 0 1 45%;
+      max-width: 45%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .outfit-card-grid .card {
+      flex: 0 1 90%;
+      max-width: 90%;
+    }
+  }
+  
+  
