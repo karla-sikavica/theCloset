@@ -10,6 +10,22 @@
   box-sizing: border-box;
 } */
 
+
+.closet-panel {
+  width: 400px;
+  height: 100%;             
+  overflow-y: auto;          
+  box-sizing: border-box;
+}
+
+.canvas {
+  flex: 1;
+  height: 100%;
+  background-color: white;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  position: relative;
+ }
  .scrollable-form-wrapper {
   overflow-y: auto;
   flex-grow: 1;
@@ -17,7 +33,7 @@
 
   width: 400px;
   height: 100%;    
-}
+}/* 
 .image-input-div {
   flex: 1;
   min-width: 400px;
@@ -25,7 +41,17 @@
   width: 100%;
   height: 100%;
   position: relative;
-} 
+} */
+.image-input-div {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 400px; /* fiksna visina cijelog prostora */
+
+  box-sizing: border-box;
+}
 
 
 
@@ -34,7 +60,7 @@
   gap: 1rem;
   flex-wrap: wrap;
   width: 100%;
-  height: 400px;
+  height: 100%;
   justify-content: center;
   align-items: flex-start;
   overflow: hidden;
@@ -56,7 +82,7 @@
 
 .formContainer {
   width: 100%;
-  height: 400px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

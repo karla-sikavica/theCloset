@@ -10,6 +10,22 @@
   box-sizing: border-box;
 } */
 
+
+.closet-panel {
+  width: 400px;
+  height: 100%;             
+  overflow-y: auto;          
+  box-sizing: border-box;
+}
+
+.canvas {
+  flex: 1;
+  height: 100%;
+  background-color: white;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  position: relative;
+ }
  .scrollable-form-wrapper {
   overflow-y: auto;
   flex-grow: 1;
@@ -25,20 +41,8 @@
   width: 100%;
   height: 100%;
   position: relative;
-} 
-
-
-
-.formContent {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 400px;
-  justify-content: center;
-  align-items: flex-start;
-  overflow: hidden;
 }
+
 
 
 .AddContainer {
@@ -56,12 +60,22 @@
 
 .formContainer {
   width: 100%;
-  height: 400px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
 
+.formContent {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
 
 
 

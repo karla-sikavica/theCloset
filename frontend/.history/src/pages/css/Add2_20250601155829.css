@@ -1,4 +1,4 @@
-/* .AddContainer {
+.AddContainer {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
@@ -8,62 +8,35 @@
   padding: 2rem;
   height: 500px;
   box-sizing: border-box;
-} */
-
- .scrollable-form-wrapper {
-  overflow-y: auto;
-  flex-grow: 1;
-  box-sizing: border-box;
-
-  width: 400px;
-  height: 100%;    
 }
-.image-input-div {
-  flex: 1;
-  min-width: 400px;
-  max-width: 400px;
+
+
+.formContainer {
   width: 100%;
   height: 100%;
-  position: relative;
-} 
-
-
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
 
 .formContent {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   width: 100%;
-  height: 400px;
+  height: 100%;
   justify-content: center;
   align-items: flex-start;
   overflow: hidden;
 }
 
-
-.AddContainer {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  gap: 1rem;
+.image-input-div {
+  flex: 1;
+  min-width: 400px;
+  max-width: 400px;
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  height: 400px; 
-  box-sizing: border-box;
-  align-items: stretch;
+  height: 100%;
 }
-
-.formContainer {
-  width: 100%;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-
-
 
 .formScrollArea {
   display: flex;
@@ -93,40 +66,6 @@
 .hidden-file-input {
   display: none;
 }
-
-.file-upload-label {
-  width: 100%;
-  height: 400px;
-  border: 2px dashed #ccc;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #888;
-  font-size: 14px;
-  cursor: pointer;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  background-color: #fff;
-}
-
-.file-upload-label:hover {
-  border-color: #ff1493;
-  background-color: #fdf2f8;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media (max-width: 600px) {
   .formContent {
@@ -262,6 +201,28 @@ select:focus {
   border-color: #ff1493;
 }
 
+.file-upload-label {
+  width: 100%;
+  height: 400px;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.file-upload-label:hover {
+  border-color: #ff1493;
+  background-color: #fdf2f8;
+}
+
 .input-label-div {
   display: flex;
   flex-direction: row;
@@ -333,6 +294,12 @@ select.input-error,
   border: 1.5px solid #ff1493 !important;
   box-shadow: none !important;
   background-color: #fdf2f8;
+}
+
+
+.scrollable-form-wrapper {
+  overflow-y: auto;
+  flex-grow: 1;
 }
 
 .canvas-placeholder-img {
