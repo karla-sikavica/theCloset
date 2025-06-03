@@ -77,7 +77,7 @@ const Closet = ({ onDragStart }: ClosetProps) => {
                 className="filters-button"
                 onClick={() => setIsFilterModalOpen((prev) => !prev)}
               >
-                filters
+                filters {/* {isFilterModalOpen ? "▲" : "▼"} */}
               </button>
 
               {isFilterModalOpen && (
@@ -161,50 +161,47 @@ const Closet = ({ onDragStart }: ClosetProps) => {
         </div>
       </div>
 
-      {sortedData.length === 0 ? (
-        <div className="center-closet">
+      <div className="card-container">
+        <div className="card-div">
+          {sortedData.map((entry) => (
+            <div key={entry.id} className="card">
+              <div className="image-div">
+                <img
+                  className="img"
+                  src={entry.imageUrl}
+                  alt={entry.name || "outfit"}
+                  draggable
+                  onClick={() => setSelectedItem(entry)}
+                  onDragStart={onDragStart ? onDragStart(entry) : undefined}
+                />
+              </div>
+              {activeTab === "clothing" && (
+                <div className="card-body">
+                  <div className="body-div">{entry.brand}</div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        {sortedData.length === 0 && (
           <div className="no-items-message">
             {activeTab === "clothing"
               ? "you haven't logged any clothing items yet"
               : "you haven't created any outfits yet"}
           </div>
-        </div>
-      ) : (
-        <div className="card-container">
-          <div className="card-div">
-            {sortedData.map((entry) => (
-              <div key={entry.id} className="card">
-                <div className="image-div">
-                  <img
-                    className="img"
-                    src={entry.imageUrl}
-                    alt={entry.name || "outfit"}
-                    draggable
-                    onClick={() => setSelectedItem(entry)}
-                    onDragStart={onDragStart ? onDragStart(entry) : undefined}
-                  />
-                </div>
-                {activeTab === "clothing" && (
-                  <div className="card-body">
-                    <div className="body-div">{entry.brand}</div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+        )}
 
-          {selectedItem && (
-            <ClothingItem
-              item={selectedItem}
-              onClose={() => setSelectedItem(null)}
-              onDelete={(id) => {
-                console.log("Delete item with id:", id);
-                setSelectedItem(null);
-              }}
-            />
-          )}
-        </div>
-      )}
+        {selectedItem && (
+          <ClothingItem
+            item={selectedItem}
+            onClose={() => setSelectedItem(null)}
+            onDelete={(id) => {
+              console.log("Delete item with id:", id);
+              setSelectedItem(null);
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 };

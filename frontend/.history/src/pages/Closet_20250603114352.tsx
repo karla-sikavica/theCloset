@@ -162,12 +162,10 @@ const Closet = ({ onDragStart }: ClosetProps) => {
       </div>
 
       {sortedData.length === 0 ? (
-        <div className="center-closet">
-          <div className="no-items-message">
-            {activeTab === "clothing"
-              ? "you haven't logged any clothing items yet"
-              : "you haven't created any outfits yet"}
-          </div>
+        <div className="no-items-message">
+          {activeTab === "clothing"
+            ? "you haven't logged any clothing items yet"
+            : "you haven't created any outfits yet"}
         </div>
       ) : (
         <div className="card-container">

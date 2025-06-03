@@ -1,0 +1,33 @@
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Kalla', sans-serif;
+    background-color: white; /* ili neka tvoja pozadina */
+  }
+  
+  .loading {
+    font-size: 60px;
+    font-weight: bold;
+    color: #333; /* ili neka tvoja primarna boja */
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  /* Optional animacija za više life-a ✨ */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+  }
+  

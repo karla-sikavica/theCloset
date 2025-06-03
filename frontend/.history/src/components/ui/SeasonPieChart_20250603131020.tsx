@@ -10,7 +10,7 @@ import { useFetchItems } from "../../hooks/useFetchItems";
 import { useCurrentUser } from "../../hooks/useCurrentUser";
 
 const seasonColors: { [key: string]: string } = {
-  spring: "#a2d5c6",
+  spring: "#7bf1a8",
   summer: "#f9c74f",
   autumn: "#d9a05b",
   winter: "#e1e5f2",

@@ -233,14 +233,4 @@
 
   .no-stats-message{
     font-size: 2rem;
-    text-shadow: none;
-    color: #373737;
-    width: 500px;
-  }
-
-  .center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 280px;
   }

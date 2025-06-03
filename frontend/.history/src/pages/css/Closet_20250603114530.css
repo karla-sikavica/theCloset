@@ -220,8 +220,7 @@
 .center-closet{
   display: flex;
   justify-content: center;
-  height: 350px;
-  align-items: center;
+  height: 300px;
 }
 
 

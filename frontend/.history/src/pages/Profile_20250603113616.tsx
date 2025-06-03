@@ -188,9 +188,7 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="profile-title">
-        {user?.name?.split(" ")[0]}'s analytics
-      </div>
+      <div className="profile-title">{user?.name}'s analytics</div>
       {!hasAnyData ? (
         <div className="center">
           <div className="no-stats-message">

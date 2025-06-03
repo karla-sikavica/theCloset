@@ -12,8 +12,8 @@ import { useCurrentUser } from "../../hooks/useCurrentUser";
 const seasonColors: { [key: string]: string } = {
   spring: "#a2d5c6",
   summer: "#f9c74f",
-  autumn: "#d9a05b",
-  winter: "#e1e5f2",
+  autumn: "#c08457",
+  winter: "#52796f",
   unknown: "#cccccc",
 };
 

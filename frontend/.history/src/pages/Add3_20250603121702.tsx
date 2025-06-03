@@ -136,18 +136,11 @@ const Add3 = () => {
       const objectUrl = URL.createObjectURL(noBgBlob);
       setPreviewUrl(objectUrl);
 
-      /* const processedFile = new File([noBgBlob], `no-bg-${image.name}`, {
+      const processedFile = new File([noBgBlob], `no-bg-${image.name}`, {
         type: "image/png",
       });
 
-      const storageRef = ref(storage, `images/${processedFile.name}`); */
-      const uniqueFileName = `no-bg-${uuidv4()}-${image.name}`;
-      const processedFile = new File([noBgBlob], uniqueFileName, {
-        type: "image/png",
-      });
-
-      const storageRef = ref(storage, `images/${uniqueFileName}`);
-
+      const storageRef = ref(storage, `images/${processedFile.name}`);
       await uploadBytes(storageRef, processedFile);
       const downloadURL = await getDownloadURL(storageRef);
 
