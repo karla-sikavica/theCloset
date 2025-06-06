@@ -9,8 +9,8 @@ import AppLayout from "./pages/AppLayout";
 import Add from "./pages/Add";
 import Closet from "./pages/Closet";
 import Profile from "./pages/Profile";
-import { AuthProvider } from "../src/utils/AuthContext";
-import ProtectedRoute from "../src/components/ui/ProtectedRoute";
+import { AuthProvider } from "../src/utils/AuthContext"; // 👈 novo
+import ProtectedRoute from "../src/components/ui/ProtectedRoute"; // 👈 novo
 import Add3 from "./pages/Add3";
 
 function App() {

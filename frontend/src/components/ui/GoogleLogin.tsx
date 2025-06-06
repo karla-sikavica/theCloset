@@ -13,7 +13,7 @@ function GoogleLogin() {
       const user = result.user;
 
       const token = await user.getIdToken();
-      console.log("✅ Google login successful! Token:", token);
+      console.log("google login successful, token:", token);
 
       const res = await fetch("http://localhost:8080/users", {
         method: "POST",
@@ -26,14 +26,14 @@ function GoogleLogin() {
 
       if (!res.ok) {
         const text = await res.text();
-        throw new Error(`Backend error: ${res.status} – ${text}`);
+        throw new Error(`backend error: ${res.status} – ${text}`);
       }
 
       const data = await res.json();
-      console.log("Backend response:", data);
+      console.log("backend response:", data);
       navigate("/home");
     } catch (error: any) {
-      console.error("❌ Google login error:", error.message);
+      console.error("google login error:", error.message);
     }
   };
 

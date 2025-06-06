@@ -203,21 +203,5 @@ margin-right: auto;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     font-size: 14px;
   }
-
-  .card-value {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 4px;
-    color: #333;
-    line-height: 1;
-    padding: 3px 3px 0 3px;
-  }
-  
-  .card-name {
-    font-size: 18px;
-    color: #777;
-    line-height: 1;
-
-  }
   
   

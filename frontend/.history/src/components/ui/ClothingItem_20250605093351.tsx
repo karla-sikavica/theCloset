@@ -174,36 +174,21 @@ const ClothingItem = ({
                 <div className="data-div">gift: {item.gift ? "yes" : "no"}</div> */}
                 <div className="data-grid">
                   <div className="data-card">
-                    <div className="card-value">{calculateCostPerWear()}€</div>
                     <div className="card-name">cost per wear</div>
+                    <div className="card-value">{calculateCostPerWear()}€</div>
+                  </div>
+                  <div className="data-card">brand: {item.brand}</div>
+                  <div className="data-card">material: {item.material}</div>
+                  <div className="data-card">price: {item.price}€</div>
+                  <div className="data-card">size: {item.size}</div>
+                  <div className="data-card">
+                    times worn: {calculateWears()}
                   </div>
                   <div className="data-card">
-                    <div className="card-value">{item.brand}</div>
-                    <div className="card-name">brand</div>
+                    date acquired: {formattedDate}
                   </div>
                   <div className="data-card">
-                    <div className="card-value">{item.material}</div>
-                    <div className="card-name">material</div>
-                  </div>
-                  <div className="data-card">
-                    <div className="card-value">{item.price}€</div>
-                    <div className="card-name">price</div>
-                  </div>
-                  <div className="data-card">
-                    <div className="card-value">{item.size}</div>
-                    <div className="card-name">size</div>
-                  </div>
-                  <div className="data-card">
-                    <div className="card-value">{calculateWears()}</div>
-                    <div className="card-name">times worn</div>
-                  </div>
-                  <div className="data-card">
-                    <div className="card-value">{formattedDate}</div>
-                    <div className="card-name">date acquired</div>
-                  </div>
-                  <div className="data-card">
-                    <div className="card-value">{item.gift ? "yes" : "no"}</div>
-                    <div className="card-name">gift</div>
+                    gift: {item.gift ? "yes" : "no"}
                   </div>
                 </div>
               </>

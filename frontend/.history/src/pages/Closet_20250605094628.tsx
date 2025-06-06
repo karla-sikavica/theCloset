@@ -113,9 +113,6 @@ const Closet = ({ onDragStart }: ClosetProps) => {
                     <option value="cotton">Cotton</option>
                     <option value="wool">Wool</option>
                     <option value="leather">Leather</option>
-                    <option value="metal">metal</option>
-                    <option value="silk">silk</option>
-                    <option value="polyamide">polyamide</option>
                   </select>
 
                   <select
@@ -150,9 +147,9 @@ const Closet = ({ onDragStart }: ClosetProps) => {
                     onChange={(e) => setBrandFilter(e.target.value)}
                   >
                     <option value="">All Brands</option>
-                    <option value="hm">hm</option>
-                    <option value="stradivarius">Stradivarius</option>
-                    <option value="gucci">gucci</option>
+                    <option value="Nike">Nike</option>
+                    <option value="Zara">Zara</option>
+                    <option value="Adidas">Adidas</option>
                   </select>
 
                   <select

@@ -115,7 +115,7 @@ const Closet = ({ onDragStart }: ClosetProps) => {
                     <option value="leather">Leather</option>
                     <option value="metal">metal</option>
                     <option value="silk">silk</option>
-                    <option value="polyamide">polyamide</option>
+                    <option value="polyester">polyester</option>
                   </select>
 
                   <select

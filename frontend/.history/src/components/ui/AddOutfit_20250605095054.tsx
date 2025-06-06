@@ -365,9 +365,6 @@ const AddOutfit = () => {
                     <option value="cotton">Cotton</option>
                     <option value="wool">Wool</option>
                     <option value="leather">Leather</option>
-                    <option value="metal">metal</option>
-                    <option value="silk">silk</option>
-                    <option value="polyamide">polyamide</option>
                   </select>
 
                   <select
