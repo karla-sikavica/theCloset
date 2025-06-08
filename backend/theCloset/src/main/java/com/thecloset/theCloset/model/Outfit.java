@@ -32,15 +32,15 @@ public class Outfit {
     @JsonIgnoreProperties({"outfits", "clothingItems"})
     private User user;
 
-    /*@ManyToMany
-    @JoinTable(
-            name = "outfit_tags",
-            joinColumns = @JoinColumn(name = "outfit_id"),
-            inverseJoinColumns = @JoinColumn(name = "tags_id")
-    )
+   /*@ManyToMany
+   @JoinTable(
+           name = "outfit_tags",
+           joinColumns = @JoinColumn(name = "outfit_id"),
+           inverseJoinColumns = @JoinColumn(name = "tags_id")
+   )
 
-    @JsonIgnore
-    private Set<Tag> tags;*/
+   @JsonIgnore
+   private Set<Tag> tags;*/
 
     @ManyToMany
     @JoinTable(

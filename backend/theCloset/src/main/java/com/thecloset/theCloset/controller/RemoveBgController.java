@@ -23,7 +23,6 @@ public class RemoveBgController {
     @Value("${remove.bg.api.key}")
     private String removeBgApiKey;
 
-
     @PostMapping("/remove-background")
     public ResponseEntity<byte[]> removeBackground(@RequestParam("image") MultipartFile image) {
         try {
