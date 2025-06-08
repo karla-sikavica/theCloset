@@ -23,23 +23,18 @@ public class ClothingItemService {
     public ClothingItem saveItem(ClothingItem clothingItem) {
         Set<Color> updatedColors = new HashSet<>();
 
-        // Iterate through the set of colors in the ClothingItem
         for (Color color : clothingItem.getColors()) {
             Optional<Color> existingColor = colorRepository.findByName(color.getName());
 
-            // If color already exists in the database, use the existing one
             if (existingColor.isPresent()) {
                 updatedColors.add(existingColor.get());
             } else {
-                // Otherwise, save the new color and add it to the set
                 updatedColors.add(colorRepository.save(color));
             }
         }
 
-        // Set the updated colors back to the clothingItem
         clothingItem.setColors(updatedColors);
 
-        // Save the clothing item with the updated colors
         return clothingItemRepository.save(clothingItem);
     }
 
@@ -49,7 +44,7 @@ public class ClothingItemService {
 
     public ClothingItem incrementWearCount(Long id) {
         ClothingItem item = clothingItemRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Item not found with id " + id));
+                .orElseThrow(() -> new RuntimeException("item not found with id " + id));
         item.setNoOfWears(item.getNoOfWears() + 1);
         return clothingItemRepository.save(item);
     }

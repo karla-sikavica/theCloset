@@ -26,11 +26,9 @@ public class SecurityConfig {
         System.out.println("📢 Security disabled? " + securityDisabled);
 
         if (securityDisabled) {
-            // 🚧 DEVELOPMENT MOD – sve otvoreno
             http.cors(cors -> {}).csrf(csrf -> csrf.disable())
                     .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
         } else {
-            // 🔒 PRODUCTION MOD – koristi Firebase autentikaciju
             http.cors(cors -> {}).csrf(csrf -> csrf.disable())
                     .authorizeHttpRequests(auth -> auth
                             .requestMatchers("/**").permitAll()

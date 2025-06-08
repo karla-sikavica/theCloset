@@ -26,7 +26,7 @@ public class Category {
     private List<Subcategory> subcategories;
 
     @OneToMany(mappedBy = "category")
-    @JsonManagedReference("category-clothingItems")  // This should correspond to the back-reference name from ClothingItem
+    @JsonManagedReference("category-clothingItems")
     private List<ClothingItem> clothingItems;
 
 

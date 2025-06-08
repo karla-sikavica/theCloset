@@ -24,7 +24,7 @@ public class TheClosetApplication {
 				 var stmt = conn.createStatement();
 				 var rs = stmt.executeQuery("SELECT COUNT(*) FROM color")) {
 				rs.next();
-				System.out.println("📦 Broj boja: " + rs.getInt(1));
+				System.out.println("broj boja: " + rs.getInt(1));
 			}
 		};
 	}

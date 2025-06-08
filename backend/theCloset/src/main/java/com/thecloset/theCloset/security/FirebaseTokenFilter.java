@@ -28,7 +28,6 @@ public class FirebaseTokenFilter extends OncePerRequestFilter {
                                     FilterChain filterChain)
             throws ServletException, IOException {
 
-        // 🚨 Skip filter completely if security is disabled
         if (securityDisabled) {
             filterChain.doFilter(request, response);
             return;
@@ -44,7 +43,7 @@ public class FirebaseTokenFilter extends OncePerRequestFilter {
                 String uid = decodedToken.getUid();
 
                 if (developerUid.equals(uid)) {
-                    System.out.println("✅ Developer pristup dozvoljen za UID: " + uid);
+                    System.out.println("developer pristup dozvoljen za UID: " + uid);
                 }
 
                 request.setAttribute("firebaseUser", decodedToken);

@@ -38,20 +38,18 @@ public class UserController {
         String idToken = authHeader.substring(7);
 
         try {
-            // Verify the ID token using Firebase Admin SDK
             FirebaseToken decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
-            String uid = decodedToken.getUid(); // Get the UID from the decoded token
+            String uid = decodedToken.getUid();
 
-            // Find the user in your database by UID
             Optional<User> user = userService.findByUid(uid);
             if (user.isPresent()) {
-                return ResponseEntity.ok(user.get());  // Return the current user
+                return ResponseEntity.ok(user.get());
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();  // If no user is found
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
             }
 
         } catch (FirebaseAuthException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();  // If token verification fails
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
 
@@ -73,13 +71,6 @@ public class UserController {
                 .map(user -> ResponseEntity.ok(user.getOutfits()))
                 .orElse(ResponseEntity.notFound().build());
     }
-
-    /*@GetMapping("/{id}/items")
-    public ResponseEntity<List<ClothingItem>> getUserClothingItems(@PathVariable Integer id) {
-        return userService.getUserById(id)
-                .map(user -> ResponseEntity.ok(user.getClothingItems()))
-                .orElse(ResponseEntity.notFound().build());
-    }*/
 
     @GetMapping("/{id}/items")
     public ResponseEntity<List<ClothingItemDTO>> getUserClothingItems(@PathVariable Integer id) {
@@ -116,7 +107,7 @@ public class UserController {
             if (existingUser.isPresent()) {
                 try {
                     String json = new ObjectMapper().writeValueAsString(existingUser.get());
-                    System.out.println("📤 Backend šalje korisnika (postoji): " + json);
+                    System.out.println("📤backend šalje korisnika (postoji): " + json);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -127,7 +118,7 @@ public class UserController {
             User savedUser = userService.registerFirebaseUser(uid, email, name);
             try {
                 String json = new ObjectMapper().writeValueAsString(savedUser);
-                System.out.println("📤 Backend šalje korisnika (novi): " + json);
+                System.out.println("backend šalje korisnika (novi): " + json);
             } catch (Exception e) {
                 e.printStackTrace();
             }

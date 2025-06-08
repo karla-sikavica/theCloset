@@ -75,7 +75,6 @@ public class ClothingItem {
     private Set<Color> colors;
 
     @ManyToMany(mappedBy = "clothingItems")
-    //@JsonBackReference("outfit-clothingItems")
     @JsonIgnore
     private Set<Outfit> outfits;
 }

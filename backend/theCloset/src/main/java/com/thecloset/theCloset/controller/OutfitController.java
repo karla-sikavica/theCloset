@@ -31,17 +31,10 @@ public class OutfitController {
         return ResponseEntity.ok(outfits);
     }
 
-   /* @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Outfit>> getOutfitsByUserId(@PathVariable Integer userId) {
-        List<Outfit> userOutfits = outfitService.getOutfitsByUserId(userId);
-        return ResponseEntity.ok(userOutfits);
-    }*/
-
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<OutfitDTO>> getOutfitsByUserId(@PathVariable Integer userId) {
         List<Outfit> userOutfits = outfitService.getOutfitsByUserId(userId);
 
-        // Pretvori listu u DTO listu
         List<OutfitDTO> outfitDTOs = userOutfits.stream()
                 .map(OutfitDTO::new)
                 .collect(Collectors.toList());

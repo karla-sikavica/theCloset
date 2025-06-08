@@ -10,7 +10,5 @@ public class CategoryDTO {
         this.id = category.getId();
         this.name = category.getName();
     }
-
-    // Getters (ako ne koristiš Lombok)
 }
 

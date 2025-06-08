@@ -27,20 +27,9 @@ public class Outfit {
     private String imageUrl;
 
     @ManyToOne
-    //@JsonBackReference("user-outfits")
     @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnoreProperties({"outfits", "clothingItems"})
     private User user;
-
-   /*@ManyToMany
-   @JoinTable(
-           name = "outfit_tags",
-           joinColumns = @JoinColumn(name = "outfit_id"),
-           inverseJoinColumns = @JoinColumn(name = "tags_id")
-   )
-
-   @JsonIgnore
-   private Set<Tag> tags;*/
 
     @ManyToMany
     @JoinTable(
@@ -48,6 +37,5 @@ public class Outfit {
             joinColumns = @JoinColumn(name = "outfit_id"),
             inverseJoinColumns = @JoinColumn(name = "item_id")
     )
-    //@JsonManagedReference("outfit-clothingItems")
     private Set<ClothingItem> clothingItems;
 }

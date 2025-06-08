@@ -10,7 +10,7 @@ import Closet from "./pages/Closet";
 import Profile from "./pages/Profile";
 import { AuthProvider } from "../src/utils/AuthContext";
 import ProtectedRoute from "../src/components/ui/ProtectedRoute";
-import Add from "./pages/Add";
+import Add3 from "./pages/Add";
 
 function App() {
   const { loading } = useLoading();

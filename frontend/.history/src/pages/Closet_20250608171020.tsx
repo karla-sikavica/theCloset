@@ -18,7 +18,8 @@ const Closet = ({ onDragStart }: ClosetProps) => {
 
   const [activeTab, setActiveTab] = useState<"clothing" | "outfit">("clothing");
   const [selectedItem, setSelectedItem] = useState<any | null>(null);
-  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+  /*   const [filterOpen, setFilterOpen] = useState(false);
+   */ const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
   const [colorFilter, setColorFilter] = useState("");
   const [materialFilter, setMaterialFilter] = useState("");

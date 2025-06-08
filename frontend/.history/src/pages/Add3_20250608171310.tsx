@@ -30,7 +30,7 @@ const predefinedColors = [
   { id: 16, name: "Silver", bgColor: "#c0c0c0" },
 ];
 
-const Add = () => {
+const Add3 = () => {
   const [showColorOptions, setShowColorOptions] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [image, setImage] = useState<File | null>(null);
@@ -52,12 +52,12 @@ const Add = () => {
     size: string;
     brand: string;
     material: string;
-    colors: { id: number; name: string }[];
+    colors: { id: number; name: string }[]; // Explicitly define colors as an array of strings { id: number; name: string }
     imageUrl: string;
     price: string;
     gift: boolean;
     no_of_wears: number;
-    date_acquired: string;
+    date_acquired: string; // Use ISO 8601 format for date (e.g., "2025-04-12")
   }>({
     name: "",
     season: "",
@@ -321,4 +321,4 @@ const Add = () => {
   );
 };
 
-export default Add;
+export default Add3;

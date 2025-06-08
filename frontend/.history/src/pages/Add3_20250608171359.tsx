@@ -30,7 +30,7 @@ const predefinedColors = [
   { id: 16, name: "Silver", bgColor: "#c0c0c0" },
 ];
 
-const Add = () => {
+const Add3 = () => {
   const [showColorOptions, setShowColorOptions] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [image, setImage] = useState<File | null>(null);
@@ -321,4 +321,4 @@ const Add = () => {
   );
 };
 
-export default Add;
+export default Add3;

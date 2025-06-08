@@ -39,13 +39,6 @@ INSERT INTO color (id, name) VALUES
 (17, 'Multicolor');
 
 
--- TAGS
-INSERT INTO tags (id, name) VALUES
-(1, 'Casual'),
-(2, 'Formal'),
-(3, 'Sporty'),
-(4, 'Winter'),
-(5, 'Trendy');
 
 -- CLOTHING ITEMS
 INSERT INTO clothing_item (

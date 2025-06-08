@@ -37,16 +37,15 @@ public class OutfitService {
     @Transactional
     public void deleteOutfit(Integer id) {
         Outfit outfit = outfitRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Outfit not found with id: " + id));
+                .orElseThrow(() -> new RuntimeException("outfit not found with id: " + id));
 
-        // Prava sinkronizacija obje strane veze
         for (ClothingItem item : outfit.getClothingItems()) {
             item.getOutfits().remove(outfit);
-            entityManager.merge(item); // osiguraj da se promjena vidi
+            entityManager.merge(item);
         }
 
         outfit.getClothingItems().clear();
-        entityManager.merge(outfit); // osiguraj da se vidi i ovdje
+        entityManager.merge(outfit);
 
         outfitRepository.delete(outfit);
     }
