@@ -365,7 +365,7 @@ const AddOutfit = () => {
                     <option value="Silver">silver</option>
                   </select>
 
-                  {/*  <select
+                  <select
                     value={materialFilter}
                     onChange={(e) => setMaterialFilter(e.target.value)}
                   >
@@ -376,18 +376,6 @@ const AddOutfit = () => {
                     <option value="metal">metal</option>
                     <option value="silk">silk</option>
                     <option value="polyamide">polyamide</option>
-                  </select> */}
-
-                  <select
-                    value={materialFilter}
-                    onChange={(e) => setMaterialFilter(e.target.value)}
-                  >
-                    <option value="">All Materials</option>
-                    {uniqueMaterials.map((material) => (
-                      <option key={material} value={material}>
-                        {material}
-                      </option>
-                    ))}
                   </select>
 
                   <select

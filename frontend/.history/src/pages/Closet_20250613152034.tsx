@@ -163,7 +163,7 @@ const Closet = ({ onDragStart }: ClosetProps) => {
                     <option value="Swimwear">Swimwear</option>
                   </select>
 
-                  {/* <select
+                  <select
                     value={brandFilter}
                     onChange={(e) => setBrandFilter(e.target.value)}
                   >
@@ -171,18 +171,6 @@ const Closet = ({ onDragStart }: ClosetProps) => {
                     <option value="hm">hm</option>
                     <option value="stradivarius">Stradivarius</option>
                     <option value="gucci">gucci</option>
-                  </select> */}
-
-                  <select
-                    value={brandFilter}
-                    onChange={(e) => setBrandFilter(e.target.value)}
-                  >
-                    <option value="">All Brands</option>
-                    {uniqueBrands.map((brand) => (
-                      <option key={brand} value={brand}>
-                        {capitalize(brand)}
-                      </option>
-                    ))}
                   </select>
 
                   <select

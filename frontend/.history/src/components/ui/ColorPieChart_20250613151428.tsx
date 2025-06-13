@@ -105,7 +105,7 @@ const ColorPieChart = () => {
             cx="50%"
             cy="50%"
             outerRadius={100}
-            label={(entry) => `${entry.value}`} //fix the % char ili umjesto postotka staviti broj itema
+            label={(entry) => `${entry.percentage}`} //fix the % char
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />
