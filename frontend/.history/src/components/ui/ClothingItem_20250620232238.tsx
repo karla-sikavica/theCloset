@@ -77,9 +77,7 @@ const ClothingItem = ({
         // Prvi klik: označi kao "worn today"
         if (isOutfit) {
           const updatePromises = item.items.map((clothing: any) =>
-            axios.put(
-              `${import.meta.env.VITE_API_URL}/item/${clothing.id}/wear`
-            )
+            axios.put(`http://localhost:8080/item/${clothing.id}/wear`)
           );
 
           const responses = await Promise.all(updatePromises);
@@ -88,7 +86,7 @@ const ClothingItem = ({
           });
         } else {
           const response = await axios.put(
-            `${import.meta.env.VITE_API_URL}/item/${item.id}/wear`
+            `http://localhost:8080/item/${item.id}/wear`
           );
           setWears(response.data.noOfWears);
         }
@@ -110,8 +108,8 @@ const ClothingItem = ({
 
     try {
       const endpoint = isOutfit
-        ? `${import.meta.env.VITE_API_URL}/outfits/${item.id}`
-        : `${import.meta.env.VITE_API_URL}/item/${item.id}`;
+        ? `http://localhost:8080/outfits/${item.id}`
+        : `http://localhost:8080/item/${item.id}`;
 
       await axios.delete(endpoint);
       onDelete(item.id); // callback za brisanje iz liste

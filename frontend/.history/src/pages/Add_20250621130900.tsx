@@ -159,7 +159,7 @@ const Add = () => {
         dateAcquired: clothingItem.date_acquired,
       };
 
-      await axios.post(`${import.meta.env.VITE_API_URL}/item`, formData);
+      await axios.post("http://localhost:8080/item", formData);
 
       setItemAdded(true);
       setTimeout(() => {

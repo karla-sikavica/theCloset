@@ -3,6 +3,7 @@ import { getAuth, getIdToken } from "firebase/auth";
 import { app } from "../firebase";
 import { User } from "../types";
 import { useNavigate } from "react-router-dom";
+import api from "../services/api";
 
 export const useCurrentUser = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -16,16 +17,10 @@ export const useCurrentUser = () => {
 
         if (currentUser) {
           const idToken = await getIdToken(currentUser);
-          const response = await fetch(
-            `${import.meta.env.VITE_API_URL}/users/current`,
-            //"https://thecloset-1.onrender.com/users/current",
-            {
-              method: "GET",
-              headers: { Authorization: `Bearer ${idToken}` },
-            }
-          );
-          console.log("API 1=", import.meta.env.VITE_API_URL);
-
+          const response = await fetch("http://localhost:8080/users/current", {
+            method: "GET",
+            headers: { Authorization: `Bearer ${idToken}` },
+          });
           const data = await response.json();
           setUser(data);
         } else {
@@ -38,8 +33,6 @@ export const useCurrentUser = () => {
 
     fetchCurrentUser();
   }, [navigate]);
-
-  console.log("API =", import.meta.env.VITE_API_URL);
 
   return user;
 };

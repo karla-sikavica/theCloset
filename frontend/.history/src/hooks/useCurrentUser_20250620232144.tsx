@@ -18,7 +18,6 @@ export const useCurrentUser = () => {
           const idToken = await getIdToken(currentUser);
           const response = await fetch(
             `${import.meta.env.VITE_API_URL}/users/current`,
-            //"https://thecloset-1.onrender.com/users/current",
             {
               method: "GET",
               headers: { Authorization: `Bearer ${idToken}` },

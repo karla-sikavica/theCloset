@@ -133,7 +133,7 @@ const AddOutfit = () => {
       );
 
       // 4. Pošalji na backend
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/outfits`, {
+      const response = await fetch("http://localhost:8080/outfits", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(outfitData),
