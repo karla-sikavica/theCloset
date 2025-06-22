@@ -7,14 +7,15 @@
     display: flex;
     justify-content: center;
     padding: 1rem;
-    background-color: eggshell; 
-}
+    background-color: eggshell; /* light grey background like Bootstrap */
+  }
   
   .card {
     background-color: #fff;
-    border: 1px solid #dee2e6; 
-    border-radius: 0.5rem;   
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); 
+    border: 1px solid #dee2e6; /* soft gray border */
+    border-radius: 0.5rem;     /* classic bootstrap rounded corners */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* bootstrap-style shadow */
+    overflow: hidden;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
   
@@ -25,7 +26,7 @@
   
   .image-div {
     width: 100%;
-    aspect-ratio: 7/8; 
+    aspect-ratio: 7/8; /* more classic card layout */
     background-color: #e9ecef;
     overflow: hidden;
   }
@@ -48,10 +49,15 @@
     line-height: 1;
     padding-top: 4px;
   }
+  /* 
+  .card-body p:last-child {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  } */
   
   .card-div {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Default: mobile */
     gap: 0.5rem;
     max-width: 1200px;
     width: 100%;
@@ -59,7 +65,7 @@
   
   @media screen and (min-width: 430px) {
     .card-div {
-      grid-template-columns: repeat(5, 1fr); 
+      grid-template-columns: repeat(5, 1fr); /* Larger screens: 5 columns */
       gap: 0.7rem;
   }
     .card-container{
@@ -125,6 +131,13 @@
     font-size: 14px;
   }
 
+  /* .filters-floating-wrapper {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+   */
+  
   .filters-button {
     font-family: 'Kalla';
     font-size: 1.2rem;
@@ -141,7 +154,7 @@
   
   .filters-floating-modal {
     position: absolute;
-    top: 40px;
+    top: 40px; /* ispod gumba */
     right: 0;
     background-color: white;
     border: 1px solid #ccc;
@@ -173,6 +186,7 @@
   }
   
   
+  /* wrapper drži sve relativno */
 .closet-tab-wrapper {
   position: relative;
   display: flex;
@@ -180,6 +194,7 @@
   align-items: center;
 }
 
+/* tabovi su centrirani kao da su sami */
 .closet-tab-switch {
   display: flex;
   gap: 10px;
