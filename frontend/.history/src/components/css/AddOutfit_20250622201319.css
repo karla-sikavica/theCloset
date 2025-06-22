@@ -210,39 +210,5 @@
   }
   
   @media (max-width: 1440px) {
-    .outfit-container {
-      display: flex;
-      gap: 1rem;
-      width: 100%;
-      max-width: 1000px;
-      margin: 0 auto;
-      height: 500px; /* fiksna visina cijelog prostora */
-  
-      box-sizing: border-box;
-    }
-    
-    .canvas {
-      flex: 1;
-      height: 100%;
-      background-color: white;
-      border: 2px dashed #ccc;
-      border-radius: 10px;
-      position: relative;
-      width: 400px;
-  /*     overflow: hidden;
-   */  }
-  
-   .canvas:hover{
-    
-    border-color: #ff1493;
-    background-color: #fdf2f8;
-   }
-    
-    .canvas-inner {
-      background-color: white;
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+
   }

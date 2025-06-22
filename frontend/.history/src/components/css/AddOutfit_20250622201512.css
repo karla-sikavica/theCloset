@@ -216,7 +216,7 @@
       width: 100%;
       max-width: 1000px;
       margin: 0 auto;
-      height: 500px; /* fiksna visina cijelog prostora */
+      height: 600px; /* fiksna visina cijelog prostora */
   
       box-sizing: border-box;
     }
@@ -241,7 +241,7 @@
     .canvas-inner {
       background-color: white;
       position: relative;
-      width: 100%;
+      width: 400px;
       height: 100%;
       overflow: hidden;
     }

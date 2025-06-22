@@ -1,9 +1,20 @@
-
+/* .AddContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 2rem;
+  height: 500px;
+  box-sizing: border-box;
+} */
 
  .scrollable-form-wrapper {
   overflow-y: auto;
   flex-grow: 1;
   box-sizing: border-box;
+
   width: 400px;
   height: 100%;    
 }
@@ -15,6 +26,8 @@
   height: 100%;
   position: relative;
 } 
+
+
 
 .formContent {
   display: flex;
@@ -100,6 +113,49 @@
 .file-upload-label:hover {
   border-color: #ff1493;
   background-color: #fdf2f8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+  .formContent {
+    flex-direction: column;
+  }
+
+  .image-input-div,
+  .form-div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 426px) {
+  .formContent {
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100vh;
+  }
+
+  .form-div {
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .image-input-div {
+    position: static;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 input[type="text"],
@@ -227,6 +283,14 @@ select:focus {
   height: 1.9rem;
 }
 
+@media (max-width: 768px) {
+  .input-label-div input,
+  .input-label-div select {
+    width: 50%;
+    height: 1.9rem;
+  }
+}
+
 .confirmation-message {
   font-size: 2.5rem;
   font-weight: bold;
@@ -330,116 +394,90 @@ select.input-error,
 }
 
 
-@media (max-width: 600px) {
-  .formContent {
-    flex-direction: column;
-  }
-
-  .image-input-div,
-  .form-div {
-    width: 100%;
-  }
-}
-
-@media (max-width: 426px) {
-  .formContent {
-    flex-direction: column;
-    overflow-y: auto;
-    height: 100vh;
-  }
-
-  .form-div {
-    height: auto;
-    overflow-y: visible;
-  }
-
-  .image-input-div {
-    position: static;
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-  }
-}
-
-@media (max-width: 768px) {
-  .input-label-div input,
-  .input-label-div select {
-    width: 50%;
-    height: 1.9rem;
-  }
-}
-
-@media (min-width: 1440px) {
-  .AddContainer{
-    height: 630px;
-  }
-
-  .formContent {
-    height: 500px;
-    justify-content: space-between;
-    align-items: stretch;
-  }
-
-  .file-upload-label {
-    height: 500px;
-    width: 460px;
-  }
-
-  .scrollable-form-wrapper {
-    max-width: 450px;
-    width: 100%;
-    height: 500px;
-    overflow-y: auto;
-    display: flex;
-    align-items: flex-end;
-  }
-
-  .form-div {
-    height: 100%;
-    width: 100%;
+@media (max-width: 1440px) {
+  .AddContainer {
+    height: 620px;
+    padding: 1.5rem;
   }
 
   .formContainer {
-    height: 100%;
-  }
-} 
-/* 
-@media (min-width: 1440px) {
-  .AddContainer {
-    max-width: 1100px;
     height: auto;
   }
 
   .formContent {
     height: auto;
-    justify-content: space-between;
+    gap: 1.5rem;
+  }
+}
+/* 
+@media (max-width: 768px) {
+  .AddContainer {
+    padding: 1rem;
+  }
+
+  .input-label-div {
+    flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    height: auto;
   }
 
-  .image-input-div {
-    min-width: 550px;
-    max-width: 600px;
-    height: 500px;
-  }
-
-  .file-upload-label {
-    height: 100%;
+  .input-label-div input,
+  .input-label-div select {
     width: 100%;
+    margin-top: 5px;
+  }
+
+  .color-options-container {
+    justify-content: flex-start;
+  }
+
+  .color-option {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .submitButton,
+  .toggleColorsButton {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .tab {
+    font-size: 1.2rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .AddContainer {
+    padding: 0.5rem;
   }
 
   .scrollable-form-wrapper {
-    max-width: 450px;
-    width: 100%;
-    height: 500px;
-    overflow-y: auto; 
+    height: auto;
   }
 
-  .form-div {
-    height: auto;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+  .input-label-div label {
+    font-size: 1.1rem;
+  }
+
+  .formContent {
+    padding-bottom: 2rem;
+  }
+
+  .file-upload-label {
+    height: 250px;
+    font-size: 12px;
+  }
+
+  .tab {
+    font-size: 1rem;
+    padding: 4px 8px;
+  }
+
+  .confirmation-message {
+    font-size: 1.5rem;
+    padding: 1.5rem;
   }
 } */
-

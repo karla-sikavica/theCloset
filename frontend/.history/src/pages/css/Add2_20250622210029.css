@@ -368,7 +368,7 @@ select.input-error,
     height: 1.9rem;
   }
 }
-
+/* 
 @media (min-width: 1440px) {
   .AddContainer{
     height: 630px;
@@ -377,33 +377,25 @@ select.input-error,
   .formContent {
     height: 500px;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: flex-start;
   }
 
   .file-upload-label {
     height: 500px;
-    width: 460px;
+    width: 100%;
   }
 
   .scrollable-form-wrapper {
     max-width: 450px;
     width: 100%;
     height: 500px;
-    overflow-y: auto;
-    display: flex;
-    align-items: flex-end;
   }
 
   .form-div {
     height: 100%;
-    width: 100%;
   }
+} */
 
-  .formContainer {
-    height: 100%;
-  }
-} 
-/* 
 @media (min-width: 1440px) {
   .AddContainer {
     max-width: 1100px;
@@ -432,14 +424,14 @@ select.input-error,
     max-width: 450px;
     width: 100%;
     height: 500px;
-    overflow-y: auto; 
+    overflow-y: auto; /* ✅ Dodano skrolanje */
   }
 
   .form-div {
-    height: auto;
+    height: auto; /* ❌ Ne 100% jer ograničava sadržaj */
     min-height: 100%;
     display: flex;
     flex-direction: column;
   }
-} */
+}
 

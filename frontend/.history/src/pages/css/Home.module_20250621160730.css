@@ -134,6 +134,10 @@
       bottom: 100px;
     }
   
+    .navButtonsContainer {
+      flex-direction: column;
+      gap: 1rem;
+    }
   
     .logoImg {
       height: 60px;

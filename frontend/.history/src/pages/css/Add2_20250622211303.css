@@ -397,6 +397,8 @@ select.input-error,
   .form-div {
     height: 100%;
     width: 100%;
+    align-items: flex-end;
+
   }
 
   .formContainer {

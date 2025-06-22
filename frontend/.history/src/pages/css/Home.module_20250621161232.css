@@ -134,6 +134,9 @@
       bottom: 100px;
     }
   
+    .navButtonsContainer {
+      gap: 0.5rem;
+    }
   
     .logoImg {
       height: 60px;
