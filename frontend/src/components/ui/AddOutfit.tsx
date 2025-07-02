@@ -44,7 +44,8 @@ const AddOutfit = () => {
 
   const user = useCurrentUser();
   const userId = user?.id;
-  const allItems = useFetchItems(userId);
+  //const allItems = useFetchItems(userId);
+  const allItems = useFetchItems(userId).sort((a, b) => b.id - a.id);
 
   const filteredItems = allItems.filter((item) => {
     return (

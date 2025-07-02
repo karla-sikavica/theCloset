@@ -3,7 +3,6 @@ import "../css/AddOutfit.css";
 import Items from "./Items";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { IoClose } from "react-icons/io5";
-import html2canvas from "html2canvas";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase"; // prilagodi put ako treba
 import { useCurrentUser } from "../../hooks/useCurrentUser";
@@ -38,21 +37,22 @@ const AddOutfit = () => {
       y: number;
       width: number;
       height: number;
-      aspectRatio: number; // ✅ NOVO
+      aspectRatio: number;
     }[]
   >([]);
   const filterButtonRef = useRef<HTMLButtonElement>(null);
 
   const user = useCurrentUser();
   const userId = user?.id;
-  const allItems = useFetchItems(userId);
+  //const allItems = useFetchItems(userId);
+  const allItems = useFetchItems(userId).sort((a, b) => b.id - a.id);
 
   const filteredItems = allItems.filter((item) => {
     return (
-      (colorFilter === "" || item.colors.some((c) => c.name === colorFilter)) &&
+      (colorFilter === "" || item.colors.some((c) => c === colorFilter)) &&
       (brandFilter === "" || item.brand === brandFilter) &&
       (materialFilter === "" || item.material === materialFilter) &&
-      (categoryFilter === "" || item.category.name === categoryFilter) &&
+      (categoryFilter === "" || item.category === categoryFilter) &&
       (seasonFilter === "" || item.season === seasonFilter)
     );
   });
@@ -134,7 +134,7 @@ const AddOutfit = () => {
       );
 
       // 4. Pošalji na backend
-      const response = await fetch("http://localhost:8080/outfits", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/outfits`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(outfitData),
@@ -194,6 +194,8 @@ const AddOutfit = () => {
       y: e.clientY - rect.top,
     });
     setDraggingIndex(index);
+    console.log(itemX);
+    console.log(itemY);
   };
 
   const handleResizeMouseDown = (e: React.MouseEvent, index: number) => {
@@ -264,6 +266,14 @@ const AddOutfit = () => {
     }
   }, [outfitAdded]);
 
+  const uniqueBrands = Array.from(
+    new Set(allItems.map((item) => item.brand).filter(Boolean))
+  );
+
+  const uniqueMaterials = Array.from(
+    new Set(allItems.map((item) => item.material).filter(Boolean))
+  );
+
   return (
     <div className="outfit-container">
       {outfitAdded ? (
@@ -276,6 +286,12 @@ const AddOutfit = () => {
             onDragOver={(e) => e.preventDefault()}
           >
             <div className="canvas-inner" ref={canvasRef}>
+              {itemsOnCanvas.length === 0 && (
+                <div className="canvas-placeholder">
+                  drag and drop your clothes here to create an outfit
+                </div>
+              )}
+
               {itemsOnCanvas.map((entry, index) => (
                 <div
                   key={index}
@@ -321,10 +337,10 @@ const AddOutfit = () => {
             >
               <button
                 ref={filterButtonRef}
-                className="filters-button"
+                className="filters-button-o"
                 onClick={() => setShowFilterTab((prev) => !prev)}
               >
-                {showFilterTab ? "filters ▲" : "filters ▼"}
+                {showFilterTab ? "filters" : "filters"}
               </button>
 
               {showFilterTab && (
@@ -352,7 +368,7 @@ const AddOutfit = () => {
                     <option value="Silver">silver</option>
                   </select>
 
-                  <select
+                  {/*  <select
                     value={materialFilter}
                     onChange={(e) => setMaterialFilter(e.target.value)}
                   >
@@ -360,6 +376,21 @@ const AddOutfit = () => {
                     <option value="cotton">Cotton</option>
                     <option value="wool">Wool</option>
                     <option value="leather">Leather</option>
+                    <option value="metal">metal</option>
+                    <option value="silk">silk</option>
+                    <option value="polyamide">polyamide</option>
+                  </select> */}
+
+                  <select
+                    value={materialFilter}
+                    onChange={(e) => setMaterialFilter(e.target.value)}
+                  >
+                    <option value="">All Materials</option>
+                    {uniqueMaterials.map((material) => (
+                      <option key={material} value={material}>
+                        {material}
+                      </option>
+                    ))}
                   </select>
 
                   <select
@@ -378,19 +409,37 @@ const AddOutfit = () => {
                     onChange={(e) => setCategoryFilter(e.target.value)}
                   >
                     <option value="">All Categories</option>
-                    <option value="top">Top</option>
-                    <option value="pants">Pants</option>
-                    <option value="shoes">Shoes</option>
+                    <option value="Top">Top</option>
+                    <option value="Bottom">Bottom</option>
+                    <option value="Shoes">Shoes</option>
+                    <option value="Outerwear">Outerwear</option>
+                    <option value="One piece">One piece</option>
+                    <option value="Accessory">accessory</option>
+                    <option value="Jewelry">Jewelry</option>
+                    <option value="Bag">Bag</option>
+                    <option value="Swimwear">Swimwear</option>
                   </select>
+
+                  {/* <select
+                    value={brandFilter}
+                    onChange={(e) => setBrandFilter(e.target.value)}
+                  >
+                    <option value="">All Brands</option>
+                    <option value="hm">hm</option>
+                    <option value="stradivarius">Stradivarius</option>
+                    <option value="gucci">gucci</option>
+                  </select> */}
 
                   <select
                     value={brandFilter}
                     onChange={(e) => setBrandFilter(e.target.value)}
                   >
                     <option value="">All Brands</option>
-                    <option value="Nike">Nike</option>
-                    <option value="Zara">Zara</option>
-                    <option value="Adidas">Adidas</option>
+                    {uniqueBrands.map((brand) => (
+                      <option key={brand} value={brand}>
+                        {brand}
+                      </option>
+                    ))}
                   </select>
                 </div>
               )}
